@@ -15,4 +15,18 @@ public class Interactable : MonoBehaviour
     {
         
     }
+
+    public void OnClick(){
+        Debug.Log("Interactable: Click");
+    }
+
+    public void OnHold(){
+        Debug.Log("Interactable: Hold");
+
+    }
+
+    public void OnRelease(){
+        Debug.Log("Interactable: Release");
+
+    }
 }

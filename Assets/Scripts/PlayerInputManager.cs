@@ -13,13 +13,31 @@ public class PlayerInputManager : MonoBehaviour
     }
 
     public void OnClick(InputAction.CallbackContext context){
-        Debug.Log("Click Attempted");
-
-        if(!context.started) return;
-
         var rayHit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue()));
         if(!rayHit.collider) return;
 
-        Debug.Log(rayHit.collider.gameObject.name);
+
+        Interactable interactable = rayHit.collider.gameObject.GetComponent<Interactable>();
+        if(interactable != null){
+            if(context.started){
+                Debug.Log($"Clicked interactable: {interactable.gameObject.name}");
+                interactable.OnClick();
+            }
+            if(context.performed){
+                Debug.Log($"Held on interactable: {interactable.gameObject.name}");
+                interactable.OnHold();
+            }
+            if(context.canceled){
+                Debug.Log($"Releaseed interactable: {interactable.gameObject.name}");
+                interactable.OnRelease();
+            }
+        } else {
+            if(context.started)
+                Debug.Log($"Clicked object: {rayHit.collider.gameObject.name}");
+            if(context.performed)
+                Debug.Log($"Held on object: {rayHit.collider.gameObject.name}");
+            if(context.canceled)
+                Debug.Log($"Releaseed object: {rayHit.collider.gameObject.name}");
+        }
     }
 }
