@@ -1,0 +1,13 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "New Dialogue Scriptable", menuName = "Scriptables/Dialogue")]
+public class DialogueScriptable : ScriptableObject
+{
+    [SerializeReference] public DialogueSourceScriptable EntrySource;
+    [SerializeField] public DialogueTag Tag;
+    [TextArea(3, 5)]
+    [SerializeField] public String DialogueText = "";
+}

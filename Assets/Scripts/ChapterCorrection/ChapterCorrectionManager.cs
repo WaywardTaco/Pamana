@@ -48,7 +48,7 @@ public class ChapterCorrectionManager : MonoBehaviour
     private void CheckChapterCompletion(){
         // Check each icon if it has matching tags, if not, returns without playing chapter completion
         foreach(ChapterCorrectionIcon icon in ActiveChapter.AssignedChapterIcons){
-            Debug.Log($"[DEBUG]: Checking icon ({icon.gameObject.name}) on slot, match: {icon.DoItemTagsMatch()}");
+            // Debug.Log($"[DEBUG]: Checking icon ({icon.gameObject.name}) on slot, match: {icon.DoItemTagsMatch()}");
             if(!icon.DoItemTagsMatch()) return;
         }
 
