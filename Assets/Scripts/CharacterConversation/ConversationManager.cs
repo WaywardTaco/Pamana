@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class ConversationManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public enum ConvoBoxTypes {
+        Basic
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+
+
+    public static ConversationManager Instance {
+        get {
+            return _instance;
+        }
+    }
+    private static ConversationManager _instance;
+    void Awake()
     {
-        
+        if(Instance != null){
+            Destroy(this);
+            return;
+        }
+
+        _instance = this;        
+    }
+    void OnDestroy()
+    {
+        if(Instance == this)
+            _instance = null;
     }
 }
