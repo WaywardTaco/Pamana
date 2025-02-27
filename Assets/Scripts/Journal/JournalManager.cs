@@ -20,8 +20,8 @@ public class JournalManager : MonoBehaviour
     [SerializeField] private float _unclickCheckDelay;
 
     [SerializeReference] private List<JournalEntryObject> _journalEntryReferences = new();
-    [SerializeField] private List<DialogueBookmarkTracker> _dialogueReferences = new();
-    [SerializeField] private Dictionary<DialogueTag, DialogueBookmarkTracker> _dialogueTags = new();
+    private List<DialogueBookmarkTracker> _dialogueReferences = new();
+    private Dictionary<DialogueTag, DialogueBookmarkTracker> _dialogueTags = new();
     private List<DialogueBookmarkTracker> _toDisplay = new();
     public void AddJournalEntrySlot(JournalEntryObject entry){
         _journalEntryReferences.Add(entry);
