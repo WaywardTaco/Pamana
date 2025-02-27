@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TestDialogue 2
   m_EditorClassIdentifier: 
   EntrySource: {fileID: 0}
-  Tag: 3
+  DialogueTag: Test2
   DialogueText: Test dialogue blah blah 3

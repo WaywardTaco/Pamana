@@ -7,7 +7,7 @@ using UnityEngine;
 public class DialogueScriptable : ScriptableObject
 {
     [SerializeReference] public DialogueSourceScriptable EntrySource;
-    [SerializeField] public DialogueTag Tag;
+    [SerializeField] public String DialogueTag;
     [TextArea(3, 5)]
     [SerializeField] public String DialogueText = "";
 }

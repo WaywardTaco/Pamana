@@ -21,7 +21,7 @@ public class JournalManager : MonoBehaviour
 
     [SerializeReference] private List<JournalEntryObject> _journalEntryReferences = new();
     private List<DialogueBookmarkTracker> _dialogueReferences = new();
-    private Dictionary<DialogueTag, DialogueBookmarkTracker> _dialogueTags = new();
+    private Dictionary<String, DialogueBookmarkTracker> _dialogueTags = new();
     private List<DialogueBookmarkTracker> _toDisplay = new();
     public void AddJournalEntrySlot(JournalEntryObject entry){
         _journalEntryReferences.Add(entry);
@@ -42,12 +42,12 @@ public class JournalManager : MonoBehaviour
     }
 
     public void UpdateEntryBookmarkCallback(DialogueObject entry, bool wasClick = false){
-        if(entry.ActiveDialogue != null && !_dialogueTags.ContainsKey(entry.ActiveDialogue.Tag))
+        if(entry.ActiveDialogue != null && !_dialogueTags.ContainsKey(entry.ActiveDialogue.DialogueTag))
             AddDialogueReference(entry.ActiveDialogue);
 
         if(wasClick){
             if(entry.ActiveDialogue != null){
-                DialogueBookmarkTracker tracker = _dialogueTags[entry.ActiveDialogue.Tag];
+                DialogueBookmarkTracker tracker = _dialogueTags[entry.ActiveDialogue.DialogueTag];
 
                 if(!tracker.IsBookmarked && _toDisplay.Count >= _journalEntryReferences.Count){
                     Debug.LogWarning("[TODO]: Display Feedback that a dialogue was not able to be bookmarked cause of max count");
@@ -81,7 +81,7 @@ public class JournalManager : MonoBehaviour
             return;
         }
 
-        if(_dialogueTags[entry.ActiveDialogue.Tag].IsBookmarked){
+        if(_dialogueTags[entry.ActiveDialogue.DialogueTag].IsBookmarked){
             if(entry.WasJustClicked){
                 if(_bookedmarkedIconPressed == null){
                     Debug.LogWarning("[WARN]: Bookmarked Pressed Icon Missing");
@@ -145,8 +145,8 @@ public class JournalManager : MonoBehaviour
 
     private void ReinitDialogueTagDict(){
         foreach(DialogueBookmarkTracker tracker in _dialogueReferences){
-            if(!_dialogueTags.ContainsKey(tracker.Dialogue.Tag))
-                _dialogueTags.Add(tracker.Dialogue.Tag, tracker);
+            if(!_dialogueTags.ContainsKey(tracker.Dialogue.DialogueTag))
+                _dialogueTags.Add(tracker.Dialogue.DialogueTag, tracker);
         }
     }
 
