@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -34,18 +35,23 @@ public class DialogueObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     void Start()
     {
         if(_activeDialogueEntry != null)
-            SetDialogueEntry(_activeDialogueEntry);
-        
-        JournalManager.Instance.AddDialogueEntry(this);
+            SetDialogue(_activeDialogueEntry);
     }
 
-    public virtual void SetDialogueEntry(DialogueScriptable dialogueEntry){
+    protected virtual void SetDialogue(DialogueScriptable dialogueEntry){
         _activeDialogueEntry = dialogueEntry;
+        if(dialogueEntry == null){
+            _dialogueText.text = "";
+            _bookmark.gameObject.SetActive(false);
+            return;
+        } 
+        _bookmark.gameObject.SetActive(true);
         _dialogueText.text = _activeDialogueEntry.DialogueText;
     }
 
-    public void SetBookmarkSprite(Sprite sprite){
+    public void SetBookmarkSprite(Sprite sprite, bool deactivate = false){
         _bookmark.sprite = sprite;
+        _bookmark.gameObject.SetActive(!deactivate);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

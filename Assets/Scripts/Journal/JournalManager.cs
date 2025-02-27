@@ -7,7 +7,7 @@ public class JournalManager : MonoBehaviour
 {
     [Serializable] public class DialogueBookmarkTracker {
         [SerializeReference] public DialogueScriptable Dialogue;
-        [SerializeField] public bool IsBookmarked;
+        [SerializeField] public bool IsBookmarked = false;
     }
 
     [SerializeReference] private Sprite _unbookmarkedIconIdle;
@@ -19,31 +19,68 @@ public class JournalManager : MonoBehaviour
 
     [SerializeField] private float _unclickCheckDelay;
 
+    [SerializeReference] private List<JournalEntryObject> _journalEntryReferences = new();
     [SerializeField] private List<DialogueBookmarkTracker> _dialogueReferences = new();
     [SerializeField] private Dictionary<DialogueTag, DialogueBookmarkTracker> _dialogueTags = new();
-
-    [SerializeField] private List<DialogueObject> _allDialogueEntries = new();
-    public void AddDialogueEntry(DialogueObject entry){
-        _allDialogueEntries.Add(entry);
+    private List<DialogueBookmarkTracker> _toDisplay = new();
+    public void AddJournalEntrySlot(JournalEntryObject entry){
+        _journalEntryReferences.Add(entry);
     }
-    public void ClearDialogueEntries(){
-        _allDialogueEntries.Clear();
+    public void RemoveJournalEntrySlot(JournalEntryObject entry){
+        _journalEntryReferences.Remove(entry);
+    }
+    public void ClearJournalEntrySlots(){
+        _journalEntryReferences.Clear();
     }
 
-    private IEnumerator DelayedUnclickCheck(DialogueObject entry){
-        yield return new WaitForSeconds(_unclickCheckDelay);
-        UpdateEntryBookmarkCallback(entry);
+    private void AddDialogueReference(DialogueScriptable dialogueScriptable){
+        DialogueBookmarkTracker tracker = new();
+        tracker.Dialogue = dialogueScriptable;
+        _dialogueReferences.Add(tracker);
+
+        ReinitDialogueTagDict();
     }
 
     public void UpdateEntryBookmarkCallback(DialogueObject entry, bool wasClick = false){
+        if(entry.ActiveDialogue != null && !_dialogueTags.ContainsKey(entry.ActiveDialogue.Tag))
+            AddDialogueReference(entry.ActiveDialogue);
+
         if(wasClick){
-            _dialogueTags[entry.ActiveDialogue.Tag].IsBookmarked = !_dialogueTags[entry.ActiveDialogue.Tag].IsBookmarked;
+            if(entry.ActiveDialogue != null){
+                DialogueBookmarkTracker tracker = _dialogueTags[entry.ActiveDialogue.Tag];
+
+                if(!tracker.IsBookmarked && _toDisplay.Count >= _journalEntryReferences.Count){
+                    Debug.LogWarning("[TODO]: Display Feedback that a dialogue was not able to be bookmarked cause of max count");
+                } else {
+                    tracker.IsBookmarked = !tracker.IsBookmarked;
+                    if(tracker.IsBookmarked){
+                        _toDisplay.Add(tracker);
+                    } else {
+                        _toDisplay.Remove(tracker);
+                    }
+                }
+            }
+
+            UpdateDisplayedJournalEntries();
         }
 
         UpdateEntryBookmarkIcon(entry);
     }
 
+    private void UpdateDisplayedJournalEntries(){
+        for(int i = 0; i < _journalEntryReferences.Count; i++){
+            if(_toDisplay.Count <= i)
+                _journalEntryReferences[i].SetJournalEntry(null);
+            else
+                _journalEntryReferences[i].SetJournalEntry(_toDisplay[i].Dialogue);
+        }
+    }
+
     private void UpdateEntryBookmarkIcon(DialogueObject entry){
+        if(entry.ActiveDialogue == null){
+            return;
+        }
+
         if(_dialogueTags[entry.ActiveDialogue.Tag].IsBookmarked){
             if(entry.WasJustClicked){
                 if(_bookedmarkedIconPressed == null){
@@ -94,10 +131,22 @@ public class JournalManager : MonoBehaviour
             }
         }
     }
+    
+    private IEnumerator DelayedUnclickCheck(DialogueObject entry){
+        yield return new WaitForSeconds(_unclickCheckDelay);
+        UpdateEntryBookmarkCallback(entry);
+    }
 
-    private void InitializeDialogueTagDict(){
+
+    private void InitiazlizeDialogueTagDict(){
+        _dialogueTags.Clear();
+        ReinitDialogueTagDict();
+    }
+
+    private void ReinitDialogueTagDict(){
         foreach(DialogueBookmarkTracker tracker in _dialogueReferences){
-            _dialogueTags.Add(tracker.Dialogue.Tag, tracker);
+            if(!_dialogueTags.ContainsKey(tracker.Dialogue.Tag))
+                _dialogueTags.Add(tracker.Dialogue.Tag, tracker);
         }
     }
 
@@ -114,10 +163,10 @@ public class JournalManager : MonoBehaviour
             return;
         }
 
-        _instance = this;
+        _instance = this;        
 
-        InitializeDialogueTagDict();
-        
+        InitiazlizeDialogueTagDict();
+        UpdateDisplayedJournalEntries();
     }
     void OnDestroy()
     {

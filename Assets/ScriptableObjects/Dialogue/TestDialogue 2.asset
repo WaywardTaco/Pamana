@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bdc2dd8b26e51047bfa5cba37a58784, type: 3}
-  m_Name: TestDialogue
+  m_Name: TestDialogue 2
   m_EditorClassIdentifier: 
   EntrySource: {fileID: 0}
-  Tag: 1
-  DialogueText: Test dialogue blah blah
+  Tag: 3
+  DialogueText: Test dialogue blah blah 3

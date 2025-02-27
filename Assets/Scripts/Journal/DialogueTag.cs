@@ -5,5 +5,5 @@ using UnityEngine;
 public enum DialogueTag
 {
     None,
-    Dialogue1, Dialogue2, 
+    Dialogue1, Dialogue2, Dialogue3, Dialogue4
 }
