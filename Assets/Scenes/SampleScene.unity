@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 0.8244234, b: 0.6933962, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -425,13 +425,6 @@ MonoBehaviour:
   - {fileID: 596941511}
   - {fileID: 796147244}
   - {fileID: 720280332}
-  debugSetConvoView: 0
-  debugSetChoiceView: 0
-  debugProgressConvoStep: 0
-  debugCharacterToSet: {fileID: 0}
-  debugConvoBranch: {fileID: 0}
-  debugConvoStepIndex: 0
-  debugIsCharKnown: 0
 --- !u!1 &52376283
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6179246, g: 0.6264598, b: 1, a: 0.392}
+  m_Color: {r: 0.6179246, g: 0.6264598, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -659,6 +652,9 @@ MonoBehaviour:
   _viewUpdater: {fileID: 16463957}
   _characterConvoProgress:
   - Character: {fileID: 11400000, guid: 005097c8d6bddbd4d8ee7d5cbf0558a0, type: 2}
+    ConvoIndex: 0
+    isCharacterKnown: 0
+  - Character: {fileID: 11400000, guid: eea710200ba60a944a3c2faaab8621be, type: 2}
     ConvoIndex: 0
     isCharacterKnown: 0
   debugStartConvo: 0

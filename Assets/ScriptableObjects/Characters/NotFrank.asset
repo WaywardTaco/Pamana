@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b60855b4e94624498e5d1ffb01435b, type: 3}
+  m_Name: NotFrank
+  m_EditorClassIdentifier: 
+  SourceIcon: {fileID: 0}
+  CharacterKnownName: Not Frank
+  CharacterUnknownName: Is this Frank? Nah...
+  CharacterTag: NotFrank
+  CharacterPortaits: []
+  ConvoStartBranches:
+  - {fileID: 11400000, guid: 2b236f374cdc34b4e935b3d8d27b9cf1, type: 2}
+  - {fileID: 11400000, guid: b32217beffa657347a864090b18c0c1b, type: 2}

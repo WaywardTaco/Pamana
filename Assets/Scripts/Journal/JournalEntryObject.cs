@@ -7,7 +7,7 @@ public class JournalEntryObject : DialogueObject
 {
     [SerializeField] private Image _entryIconReference;
     public void SetJournalEntry(DialogueScriptable dialogue){
-        this.SetDialogue(dialogue);
+        this.SetDialogue(dialogue, true);
         JournalManager.Instance.UpdateEntryBookmarkCallback(this);
         if(dialogue == null){
             _entryIconReference.gameObject.SetActive(false);

@@ -38,7 +38,7 @@ public class DialogueObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             SetDialogue(_activeDialogueEntry);
     }
 
-    protected virtual void SetDialogue(DialogueScriptable dialogueEntry){
+    protected virtual void SetDialogue(DialogueScriptable dialogueEntry, bool isJournalEntry = false){
         _activeDialogueEntry = dialogueEntry;
         if(dialogueEntry == null){
             _dialogueText.text = "";
@@ -46,7 +46,10 @@ public class DialogueObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             return;
         } 
         _bookmark.gameObject.SetActive(true);
-        _dialogueText.text = _activeDialogueEntry.DialogueText;
+        if(isJournalEntry && _activeDialogueEntry.JournalText != null)
+            _dialogueText.text = _activeDialogueEntry.JournalText;
+        else 
+            _dialogueText.text = _activeDialogueEntry.DialogueText;
     }
 
     public void SetBookmarkSprite(Sprite sprite, bool deactivate = false){

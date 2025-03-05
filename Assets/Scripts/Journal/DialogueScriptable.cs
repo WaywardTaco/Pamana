@@ -10,4 +10,6 @@ public class DialogueScriptable : ScriptableObject
     [SerializeField] public String DialogueTag;
     [TextArea(3, 5)]
     [SerializeField] public String DialogueText = "";
+    [TextArea(1, 3)]
+    [SerializeField] public String JournalText = "";
 }
