@@ -20,13 +20,13 @@ public class ConversationViewUpdater : MonoBehaviour
     private Dictionary<ConvoEmotion, GameObject> _convoBoxEmotions = new();
 
     /* DEBUG STUFF */
-        [SerializeField] private bool debugSetConvoView = false;
-        [SerializeField] private bool debugSetChoiceView = false;
-        [SerializeField] private bool debugProgressConvoStep = false;
-        [SerializeReference] private CharacterScriptable debugCharacterToSet;
-        [SerializeReference] private ConvoBranchScriptable debugConvoBranch;
-        [SerializeField] private int debugConvoStepIndex;
-        [SerializeField] private bool debugIsCharKnown = false;
+        // [SerializeField] private bool debugSetConvoView = false;
+        // [SerializeField] private bool debugSetChoiceView = false;
+        // [SerializeField] private bool debugProgressConvoStep = false;
+        // [SerializeReference] private CharacterScriptable debugCharacterToSet;
+        // [SerializeReference] private ConvoBranchScriptable debugConvoBranch;
+        // [SerializeField] private int debugConvoStepIndex;
+        // [SerializeField] private bool debugIsCharKnown = false;
     /* DEBUG STUFF END */
 
     public void SetConvoView(CharacterScriptable character, ConvoBranchScriptable.ConvoStep convoStep, bool isCharacterKnown){
@@ -105,18 +105,20 @@ public class ConversationViewUpdater : MonoBehaviour
 
     void Update()
     {
-        if(debugProgressConvoStep){
-            debugProgressConvoStep = false;
-            debugConvoStepIndex++;
-        }
-        if(debugSetChoiceView){
-            debugSetChoiceView = false;
-            SetChoicesView(debugCharacterToSet, debugConvoBranch, debugIsCharKnown);
-        }
-        if(debugSetConvoView){
-            debugSetConvoView = false;
-            SetConvoView(debugCharacterToSet, debugConvoBranch.ConvoSteps[debugConvoStepIndex], debugIsCharKnown);
-        }
+        /* Debug Stuff*/
+        // if(debugProgressConvoStep){
+        //     debugProgressConvoStep = false;
+        //     debugConvoStepIndex++;
+        // }
+        // if(debugSetChoiceView){
+        //     debugSetChoiceView = false;
+        //     SetChoicesView(debugCharacterToSet, debugConvoBranch, debugIsCharKnown);
+        // }
+        // if(debugSetConvoView){
+        //     debugSetConvoView = false;
+        //     SetConvoView(debugCharacterToSet, debugConvoBranch.ConvoSteps[debugConvoStepIndex], debugIsCharKnown);
+        // }
+        /* Debug Stuff End */
     }
 
     void Start()

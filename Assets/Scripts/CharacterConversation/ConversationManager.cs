@@ -23,14 +23,12 @@ public class ConversationManager : MonoBehaviour
     private int _currentConvoStepIndex = -1;
 
     /* Debug stuff */
-
-    [SerializeField] private bool debugStartConvo = false;
-    [SerializeField] private bool debugProgressConvoStep = false;
-    [SerializeField] private String debugCharacterToStartWith;
-    [SerializeField] private bool debugSetCharacterProgress = false;
-    [SerializeField] private int debugCharacterProgressToSet;
-    [SerializeField] private bool debugIsActiveBecomeKnown = false;
-
+        [SerializeField] private bool debugStartConvo = false;
+        [SerializeField] private bool debugProgressConvoStep = false;
+        [SerializeField] private String debugCharacterToStartWith;
+        [SerializeField] private bool debugSetCharacterProgress = false;
+        [SerializeField] private int debugCharacterProgressToSet;
+        [SerializeField] private bool debugIsActiveBecomeKnown = false;
     /* Debug stuff end */
 
     /// <summary>
@@ -38,6 +36,11 @@ public class ConversationManager : MonoBehaviour
     /// </summary>
     /// <param name="characterTag">Insert the tag of the character whose convo to start</param>
     public void StartConvo(String characterTag){
+        if(IsConvoActive()){
+            Debug.LogWarning("[WARN]: Trying to start convo while another one is active");
+            return;
+        }
+
         if(_viewUpdater == null){
             Debug.LogWarning("[WARN]: Conversation View Updater Missing");
             return;
@@ -69,6 +72,11 @@ public class ConversationManager : MonoBehaviour
     }
     
     private void CloseConvo(){
+        if(!IsConvoActive()){
+            Debug.LogWarning("[WARN]: Trying to close convo while none are active");
+            return;
+        }
+
         _currentConvo = null;
         _currentConvoStepIndex = -1;
         _currentCharacter = null;
