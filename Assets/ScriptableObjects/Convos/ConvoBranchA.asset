@@ -10,10 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89364f92868d9b84185d84fcff8f56e7, type: 3}
-  m_Name: New Convo Step
+  m_Name: ConvoBranchA
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 0}
-  ConvoLines: []
-  EndingOptions:
-  - ConvoOptionText: Pick next
-    NextConvoOption: {fileID: 0}
+  ConvoSteps:
+  - Emotion: 0
+    ConvoText: Branch A Step 1
+    ConvoEffect: {fileID: 0}
+  - Emotion: 0
+    ConvoText: Branch A Step 2
+    ConvoEffect: {fileID: 0}
+  - Emotion: 0
+    ConvoText: Branch A Step 3
+    ConvoEffect: {fileID: 0}
+  EndingOptions: []

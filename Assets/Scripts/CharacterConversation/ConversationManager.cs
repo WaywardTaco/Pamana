@@ -14,14 +14,24 @@ public class ConversationManager : MonoBehaviour
         [SerializeField] public bool isCharacterKnown = false;
     }
 
-    [SerializeReference] private List<CharacterConvoTracker> _characterConvoProgress = new();
-    private Dictionary<String, CharacterConvoTracker> _characters = new();
-
     [SerializeField] private ConversationViewUpdater _viewUpdater;
+    [SerializeField] private List<CharacterConvoTracker> _characterConvoProgress = new();
+    private Dictionary<String, CharacterConvoTracker> _characters = new();
 
     private ConvoBranchScriptable _currentConvo;
     private String _currentCharacter;
     private int _currentConvoStepIndex = -1;
+
+    /* Debug stuff */
+
+    [SerializeField] private bool debugStartConvo = false;
+    [SerializeField] private bool debugProgressConvoStep = false;
+    [SerializeField] private String debugCharacterToStartWith;
+    [SerializeField] private bool debugSetCharacterProgress = false;
+    [SerializeField] private int debugCharacterProgressToSet;
+    [SerializeField] private bool debugIsActiveBecomeKnown = false;
+
+    /* Debug stuff end */
 
     /// <summary>
     /// Call this to start a conversation based on tracked progress
@@ -51,6 +61,8 @@ public class ConversationManager : MonoBehaviour
         _currentConvo = tracker.Character.ConvoStartBranches[tracker.ConvoIndex];
         _currentConvoStepIndex = 0;
         _currentCharacter = characterTag;
+
+        _viewUpdater.gameObject.SetActive(true);
         _viewUpdater.OpenDialogueView();
 
         LoadConvoStep();
@@ -65,6 +77,11 @@ public class ConversationManager : MonoBehaviour
         Debug.Log("[TODO]: Do proper clean up of conversation");
         
         _viewUpdater.CloseDialogueView();
+        _viewUpdater.gameObject.SetActive(false);
+    }
+
+    public bool IsConvoActive(){
+        return _currentConvo == null;
     }
 
     /// <summary>
@@ -74,8 +91,17 @@ public class ConversationManager : MonoBehaviour
     public void NextConvoStepCallback(int choiceIndex = -1){
         ConvoBranchScriptable.ConvoStep convoStep = GetCurrentConvoStep();
         if(convoStep == null){
-            Debug.LogWarning("[WARN]: Trying to progress convo without an active convo step");
+            Debug.LogWarning($"[WARN]: Trying to progress convo without an active convo step (ChoiceIndex = {choiceIndex})");
             CloseConvo();
+            return;
+        }
+
+        // Cancels if invalid callback (ie. a -1 callback when options exist on the last convo step)
+        if( IsOnLastConvoStep() &&
+            choiceIndex == -1 && 
+            _currentConvo.EndingOptions.Count > 0
+        ){
+            Debug.Log("[DEBUG]: Logged a -1 Dialogue Callback while choosing");
             return;
         }
 
@@ -84,7 +110,6 @@ public class ConversationManager : MonoBehaviour
             convoStep.ConvoEffect.Effect();
 
         // Progresses the convo (going to the next step, changing branch, or ending the convo)
-        
         if(choiceIndex != -1){
             // Logic for changing branches
             if(_currentConvo == null){
@@ -93,23 +118,32 @@ public class ConversationManager : MonoBehaviour
                 return;
             }
             if(choiceIndex < -1 || _currentConvo.EndingOptions.Count <= choiceIndex){
-                Debug.LogWarning("[WARN]: Accessing out of bounds choice");
+                Debug.LogWarning($"[WARN]: Accessing out of bounds choice (ChoiceIndex = {choiceIndex})");
                 CloseConvo();
                 return;
             }
 
-            // Change branch
-            _currentConvo = _currentConvo.EndingOptions[choiceIndex].NextConvoOption;
-            _currentConvoStepIndex = 0;
-
             // Activate branch choice effect
             if(_currentConvo.EndingOptions[choiceIndex].OptionEffect != null)
                 _currentConvo.EndingOptions[choiceIndex].OptionEffect.Effect();
+
+            // Change branch
+            _currentConvoStepIndex = 0;
+
+            // Close the convo if no branch exists
+            if(_currentConvo.EndingOptions[choiceIndex].NextConvoOption == null){
+                Debug.Log("[DEBUG]: No assosciated next convo, ending convo");
+                CloseConvo();
+                return;
+            }
+
+            _currentConvo = _currentConvo.EndingOptions[choiceIndex].NextConvoOption;
+
         } else {
             // Logic for progressing to next step or ending convo
 
             // Closes convo if we are on the last convo item and no choice is selected
-            if(_currentConvoStepIndex + 1 >= _currentConvo.ConvoSteps.Count){
+            if(IsOnLastConvoStep()){
                 CloseConvo();
                 return;
             }
@@ -161,7 +195,7 @@ public class ConversationManager : MonoBehaviour
 
     private void LoadConvoStep(){
         // Checks if we are at the branch's final convo step to load the options view
-        if(_currentConvoStepIndex + 1 >= _currentConvo.ConvoSteps.Count){
+        if(IsOnLastConvoStep()){
             // Checks if the final option also has options, otherwise it defaults to non option view
             if(_currentConvo.EndingOptions.Count > 0){
                 // Loads the option view
@@ -193,10 +227,30 @@ public class ConversationManager : MonoBehaviour
         return _currentConvo.ConvoSteps[_currentConvoStepIndex];
     }
 
+    private bool IsOnLastConvoStep(){
+        return
+            _currentConvoStepIndex + 1 >= _currentConvo.ConvoSteps.Count;
+    }
+
     private void LoadCharacters(){
         _characters.Clear();
         foreach(CharacterConvoTracker tracker in _characterConvoProgress){
             _characters.Add(tracker.Character.CharacterTag, tracker);
+        }
+    }
+
+    void Update(){
+        if(debugStartConvo){
+            debugStartConvo = false;
+            StartConvo(debugCharacterToStartWith);
+        }
+        if(debugProgressConvoStep){
+            debugProgressConvoStep = false;
+            NextConvoStepCallback();
+        }
+        if(debugSetCharacterProgress){
+            debugSetCharacterProgress = false;
+            SetCharacterProgressTo(debugCharacterToStartWith, debugCharacterProgressToSet, debugIsActiveBecomeKnown);
         }
     }
 
