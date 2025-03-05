@@ -18,7 +18,7 @@ public class ConversationManager : MonoBehaviour
     [SerializeField] private List<CharacterConvoTracker> _characterConvoProgress = new();
     private Dictionary<String, CharacterConvoTracker> _characters = new();
 
-    private ConvoBranchScriptable _currentConvo;
+    private ConvoBranchScriptable _currentConvo = null;
     private String _currentCharacter;
     private int _currentConvoStepIndex = -1;
 
@@ -89,7 +89,7 @@ public class ConversationManager : MonoBehaviour
     }
 
     public bool IsConvoActive(){
-        return _currentConvo == null;
+        return _currentConvo != null;
     }
 
     /// <summary>
