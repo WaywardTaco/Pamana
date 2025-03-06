@@ -204,9 +204,9 @@ public class ConversationManager : MonoBehaviour
     private void LoadConvoStep(){
         // Checks if we are at the branch's final convo step to load the options view
         if(IsOnLastConvoStep()){
-            // Checks if the final option also has options, otherwise it defaults to non option view
+            // Checks if the final option also has choices, otherwise it defaults to non choices view
             if(_currentConvo.EndingOptions.Count > 0){
-                // Loads the option view
+                // Loads the choices view
                 _viewUpdater.SetChoicesView(
                     _characters[_currentCharacter].Character,
                     _currentConvo,        
