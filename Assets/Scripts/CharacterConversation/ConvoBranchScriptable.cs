@@ -10,7 +10,9 @@ public class ConvoBranchScriptable : ScriptableObject
     [Serializable] public class ConvoStep {
         [SerializeField] public ConvoEmotion Emotion;
         [TextArea(2,3)] public String ConvoText;
+        [TextArea(1,2)] public String JournalText;
         [SerializeReference] public ConvoStepEffectScriptable ConvoEffect = null;
+        public String DialogueTag;
     }
     [Serializable] public class BranchEndOptionLink {
         [TextArea(1, 1)] public String ConvoOptionText;

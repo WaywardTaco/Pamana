@@ -61,22 +61,24 @@ public class ConversationViewUpdater : MonoBehaviour
 
         _activeConvoBox.SetActive(true);
 
-        TMP_Text convoBoxText = _activeConvoBox.GetComponentInChildren<TMP_Text>();
-        if(convoBoxText == null){
-            Debug.LogWarning("[WARN]: Convo Box Text is missing!");
+        // Code to update ConvoBox as a Dialogue Object
+        if(!_activeConvoBox.TryGetComponent<DialogueObject>(out var dialogueObject)){
+            Debug.LogWarning("[WARN]: Dialogue Object component is missing from convo box");
             return;
         }
-
-        convoBoxText.text = convoStep.ConvoText;
+        dialogueObject.SetDialogue(
+            JournalManager.Instance.GetDialogueTracker(convoStep.DialogueTag).Dialogue
+        );
 
         // Code to refresh the text box
-        if(!_activeConvoBox.TryGetComponent<HorizontalLayoutGroup>(out var _horizontalLayoutGroup)){
+        if(!_activeConvoBox.TryGetComponent<HorizontalLayoutGroup>(out var horizontalLayoutGroup)){
             Debug.LogWarning("[WARN]: Horizontal Layout Group Component is missing from text box!");
             return;
         }
         Canvas.ForceUpdateCanvases();        
-        _horizontalLayoutGroup.enabled = false;
-        _horizontalLayoutGroup.enabled = true;
+        horizontalLayoutGroup.enabled = false;
+        horizontalLayoutGroup.enabled = true;
+
     }
 
     public void SetChoicesView(CharacterScriptable character, ConvoBranchScriptable branch, bool isCharacterKnown){

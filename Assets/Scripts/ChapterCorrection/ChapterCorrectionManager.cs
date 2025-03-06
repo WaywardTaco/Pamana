@@ -6,9 +6,11 @@ using UnityEngine;
 public class ChapterCorrectionManager : MonoBehaviour
 {
     [Serializable] public class CorrectableChapter {
-        [SerializeReference] public GameObject ChapterView;
+        [SerializeReference] public GameObject IncompleteChapterView;
+        [SerializeReference] public GameObject CompleteChapterView;
         [SerializeField] public List<ChapterCorrectionIcon> AssignedChapterIcons = new();
         [SerializeField] public List<ChapterCorrectionSlot> AssignedChapterSlots = new();
+        public bool IsCompleted = false;
     }
 
     [SerializeField] private List<CorrectableChapter> _listOfChapters = new();
@@ -40,19 +42,23 @@ public class ChapterCorrectionManager : MonoBehaviour
         }
     }
 
-    private void PlayChapterCompletion(CorrectableChapter chapter){
+    private void CompleteChapter(CorrectableChapter chapter){
+        chapter.IsCompleted = true;
+
         // TODO : Make this functional
         Debug.Log("[TODO]: Chapter Completed! Chapter Completion Graphics WIP");
     }
 
     private void CheckChapterCompletion(){
+        if(ActiveChapter.IsCompleted) return;
+
         // Check each icon if it has matching tags, if not, returns without playing chapter completion
         foreach(ChapterCorrectionIcon icon in ActiveChapter.AssignedChapterIcons){
             // Debug.Log($"[DEBUG]: Checking icon ({icon.gameObject.name}) on slot, match: {icon.DoItemTagsMatch()}");
             if(!icon.DoItemTagsMatch()) return;
         }
-
-        PlayChapterCompletion(ActiveChapter);
+            
+        CompleteChapter(ActiveChapter);
     }
 
     private bool CheckOverlap(ChapterCorrectionIcon icon, ChapterCorrectionSlot slot){

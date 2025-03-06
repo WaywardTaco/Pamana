@@ -33,17 +33,21 @@ public class JournalManager : MonoBehaviour
         _journalEntryReferences.Clear();
     }
 
-    private void AddDialogueReference(DialogueScriptable dialogueScriptable){
+    public void AddDialogueReference(DialogueScriptable dialogueScriptable){
         DialogueBookmarkTracker tracker = new();
         tracker.Dialogue = dialogueScriptable;
         _dialogueReferences.Add(tracker);
+    }
 
-        ReinitDialogueTagDict();
+    public DialogueBookmarkTracker GetDialogueTracker(String dialogueTag){
+        return _dialogueTags[dialogueTag];
     }
 
     public void UpdateEntryBookmarkCallback(DialogueObject entry, bool wasClick = false){
-        if(entry.ActiveDialogue != null && !_dialogueTags.ContainsKey(entry.ActiveDialogue.DialogueTag))
+        if(entry.ActiveDialogue != null && !_dialogueTags.ContainsKey(entry.ActiveDialogue.DialogueTag)){
             AddDialogueReference(entry.ActiveDialogue);
+            ReinitDialogueTagDict();
+        }
 
         if(wasClick){
             if(entry.ActiveDialogue != null){
@@ -143,7 +147,7 @@ public class JournalManager : MonoBehaviour
         ReinitDialogueTagDict();
     }
 
-    private void ReinitDialogueTagDict(){
+    public void ReinitDialogueTagDict(){
         foreach(DialogueBookmarkTracker tracker in _dialogueReferences){
             if(!_dialogueTags.ContainsKey(tracker.Dialogue.DialogueTag))
                 _dialogueTags.Add(tracker.Dialogue.DialogueTag, tracker);
@@ -165,9 +169,15 @@ public class JournalManager : MonoBehaviour
 
         _instance = this;        
 
+    }
+    void Start()
+    {
+        
         InitiazlizeDialogueTagDict();
         UpdateDisplayedJournalEntries();
+        ConversationManager.Instance.Initialize();
     }
+
     void OnDestroy()
     {
         if(Instance == this)

@@ -247,6 +247,53 @@ public class ConversationManager : MonoBehaviour
         }
     }
 
+    private void InitializeConvosAsDialogue(){
+        foreach(CharacterConvoTracker tracker in _characterConvoProgress){
+            int numberOfBranches = tracker.Character.ConvoStartBranches.Count;
+            for(int i = 0; i < numberOfBranches; i++){
+                ConvoBranchScriptable convoBranch = tracker.Character.ConvoStartBranches[i];
+                
+                RecursiveConvoAsDialogueConversion(
+                    tracker,
+                    convoBranch,
+                    tracker.Character.CharacterTag + "_Branch" + i
+                );
+            }
+        }
+
+        JournalManager.Instance.ReinitDialogueTagDict();
+    }
+
+    private void RecursiveConvoAsDialogueConversion(CharacterConvoTracker tracker, ConvoBranchScriptable branch, String runningTagName){
+        if(branch == null) return;
+        
+        int subBranchCount = branch.EndingOptions.Count;
+        for(int i = 0; i < subBranchCount; i++){
+            ConvoBranchScriptable.BranchEndOptionLink branchLink = branch.EndingOptions[i];
+
+            RecursiveConvoAsDialogueConversion(
+                tracker,
+                branchLink.NextConvoOption,
+                runningTagName + "_SubBranch" + i
+            );
+        }
+
+        int numberOfSteps = branch.ConvoSteps.Count;
+        for(int j = 0; j < numberOfSteps; j++){
+            ConvoBranchScriptable.ConvoStep step = branch.ConvoSteps[j];
+            step.DialogueTag = runningTagName + "_Step" + j;
+
+            JournalManager.Instance.AddDialogueReference(
+                DialogueScriptable.CreateInstance(
+                    tracker.Character,
+                    step.DialogueTag,
+                    step.ConvoText,
+                    step.JournalText
+                )
+            );
+        }
+    }
+
     void Update(){
         if(debugStartConvo){
             debugStartConvo = false;
@@ -260,6 +307,11 @@ public class ConversationManager : MonoBehaviour
             debugSetCharacterProgress = false;
             SetCharacterProgressTo(debugCharacterToStartWith, debugCharacterProgressToSet, debugIsActiveBecomeKnown);
         }
+    }
+
+    public void Initialize(){
+        LoadCharacters();
+        InitializeConvosAsDialogue();
     }
 
     public static ConversationManager Instance {
@@ -276,8 +328,6 @@ public class ConversationManager : MonoBehaviour
         }
 
         _instance = this;        
-
-        LoadCharacters();
     }
     void OnDestroy()
     {

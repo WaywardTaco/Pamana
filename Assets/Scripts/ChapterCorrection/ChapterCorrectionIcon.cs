@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ public class ChapterCorrectionIcon : MonoBehaviour, IDragHandler, IBeginDragHand
 
     private bool _justFinishedDrag = false;
     public bool DidDragJustFinish() {
-        Debug.Log($"Drag Just Finished ({this.gameObject.name}): {_justFinishedDrag}");
+        // Debug.Log($"Drag Just Finished ({this.gameObject.name}): {_justFinishedDrag}");
         if(_justFinishedDrag){
             _justFinishedDrag = false;
             return true;
@@ -19,15 +20,14 @@ public class ChapterCorrectionIcon : MonoBehaviour, IDragHandler, IBeginDragHand
         else return false;
     }
     
-    [SerializeField] private ChapterCorrectionItemTags _itemTag = ChapterCorrectionItemTags.None;
-    private ChapterCorrectionItemTags _attachedSlotItemTag = ChapterCorrectionItemTags.None;
+    [SerializeField] private String _itemTag = "";
+    private String _attachedSlotItemTag = "";
 
     public bool DoItemTagsMatch(){
-        return _itemTag != ChapterCorrectionItemTags.None 
-                && _itemTag == _attachedSlotItemTag;
+        return !_itemTag.Equals("") && _itemTag == _attachedSlotItemTag;
     }
     public void AssignSlotTag(ChapterCorrectionSlot slot = null){
-        if(slot == null) _attachedSlotItemTag = ChapterCorrectionItemTags.None;
+        if(slot == null) _attachedSlotItemTag = "";
         else _attachedSlotItemTag = slot.SlotItemTag; 
     }
 

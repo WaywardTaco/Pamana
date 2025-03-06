@@ -38,7 +38,7 @@ public class DialogueObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             SetDialogue(_activeDialogueEntry);
     }
 
-    protected virtual void SetDialogue(DialogueScriptable dialogueEntry, bool isJournalEntry = false){
+    public virtual void SetDialogue(DialogueScriptable dialogueEntry, bool isJournalEntry = false){
         _activeDialogueEntry = dialogueEntry;
         if(dialogueEntry == null){
             _dialogueText.text = "";
@@ -46,7 +46,7 @@ public class DialogueObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             return;
         } 
         _bookmark.gameObject.SetActive(true);
-        if(isJournalEntry && _activeDialogueEntry.JournalText != null)
+        if(isJournalEntry && _activeDialogueEntry.JournalText != null && !_activeDialogueEntry.JournalText.Equals(""))
             _dialogueText.text = _activeDialogueEntry.JournalText;
         else 
             _dialogueText.text = _activeDialogueEntry.DialogueText;
