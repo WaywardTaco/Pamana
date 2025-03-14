@@ -172,7 +172,6 @@ public class JournalManager : MonoBehaviour
     }
     void Start()
     {
-        
         InitiazlizeDialogueTagDict();
         UpdateDisplayedJournalEntries();
         ConversationManager.Instance.Initialize();
