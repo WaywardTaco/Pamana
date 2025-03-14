@@ -38,8 +38,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -77}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -133.5}
+  m_SizeDelta: {x: 0, y: 113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6963317639762067400
 CanvasRenderer:
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panelUpPosition: {x: 0, y: -77, z: 0}
-  _panelDownPosition: {x: 0, y: -906, z: 0}
+  _panelDownPosition: {x: 0, y: -1023, z: 0}
   _timeBeforePanelFlipUp: 0.1
   _timeBeforePanelFlipDown: 0.3
   _panelRevealSpeed: 700
