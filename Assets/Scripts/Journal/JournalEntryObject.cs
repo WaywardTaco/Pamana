@@ -24,9 +24,10 @@ public class JournalEntryObject : DialogueObject
             return;
         }
         if(dialogue.EntrySource.SourceIcon == null){
-            Debug.LogWarning("[WARN]: Source Icon Missing");
+            _entryIconReference.enabled = false;
             return;
         } 
+        _entryIconReference.enabled = true;
         _entryIconReference.sprite = dialogue.EntrySource.SourceIcon;
     }
 }

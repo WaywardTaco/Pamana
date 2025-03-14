@@ -43,10 +43,13 @@ public class ConversationViewUpdater : MonoBehaviour
         ConvoEmotion activeEmotion = convoStep.Emotion;
 
         Sprite portrait = character.GetPortrait(activeEmotion);
-        if(portrait != null)
+        if(portrait != null){
+            _characterPortrait.enabled = true;
             _characterPortrait.sprite = portrait;
-        else 
-            Debug.LogWarning($"[WARN]: Null character portrait returned for {character.CharacterTag}");
+        }
+        else {
+            _characterPortrait.enabled = false;
+        }
 
         if(!_convoBoxEmotions.ContainsKey(activeEmotion)){
             Debug.LogWarning($"[WARN]: Convo Box {activeEmotion} is missing! Setting to default");
