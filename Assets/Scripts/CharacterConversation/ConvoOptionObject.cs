@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class ConvoOptionObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    public int ConvoOptionIndex = -1;
+    [HideInInspector] public int ConvoOptionIndex = -1;
     public void OnPointerEnter(PointerEventData eventData)
     {
         // TODO: Change the look of the option when being hovered on

@@ -34,7 +34,7 @@ public class JournalCanvasController : MonoBehaviour, IPointerEnterHandler, IPoi
     // Start is called before the first frame update
     void Start(){
         _rectTransform = GetComponent<RectTransform>();
-        StartCoroutine(MovePanel(_panelDownPosition, false));
+        _rectTransform.anchoredPosition = _panelDownPosition;
     }
 
     // Update is called once per frame
