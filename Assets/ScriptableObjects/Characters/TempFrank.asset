@@ -16,7 +16,7 @@ MonoBehaviour:
   CharacterKnownName: Frank
   CharacterUnknownName: Is this Frank?
   CharacterTag: Frank
-  CharacterPortait: {fileID: 0}
+  CharacterPortaits: []
   ConvoStartBranches:
   - {fileID: 11400000, guid: 2b236f374cdc34b4e935b3d8d27b9cf1, type: 2}
   - {fileID: 11400000, guid: b32217beffa657347a864090b18c0c1b, type: 2}

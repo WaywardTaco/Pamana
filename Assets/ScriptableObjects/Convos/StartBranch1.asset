@@ -15,11 +15,17 @@ MonoBehaviour:
   ConvoSteps:
   - Emotion: 0
     ConvoText: Branch 1 Step 1
+    JournalText: 
     ConvoEffect: {fileID: 0}
+    DialogueTag: NotFrank_Branch0_Step0
   - Emotion: 0
     ConvoText: Branch 1 Step 2
+    JournalText: 
     ConvoEffect: {fileID: 0}
+    DialogueTag: NotFrank_Branch0_Step1
   - Emotion: 0
     ConvoText: Branch 1 Step 3
+    JournalText: 
     ConvoEffect: {fileID: 0}
+    DialogueTag: NotFrank_Branch0_Step2
   EndingOptions: []
