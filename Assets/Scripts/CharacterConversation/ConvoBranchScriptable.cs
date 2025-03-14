@@ -11,12 +11,16 @@ public class ConvoBranchScriptable : ScriptableObject
         [SerializeField] public ConvoEmotion Emotion;
         [TextArea(2,3)] public String ConvoText;
         [TextArea(1,2)] public String JournalText;
+        [SerializeField] public int SelfProgressSet = -1;
+        [SerializeField] public bool MakesNameKnown = false;
         [SerializeReference] public ConvoStepEffectScriptable ConvoEffect = null;
-        public String DialogueTag;
+        [HideInInspector] public String DialogueTag;
     }
     [Serializable] public class BranchEndOptionLink {
         [TextArea(1, 1)] public String ConvoOptionText;
         [SerializeReference] public ConvoBranchScriptable NextConvoOption;
+        [SerializeField] public int SelfProgressSet = -1;
+        [SerializeField] public bool MakesNameKnown = false;
         [SerializeReference] public ConvoStepEffectScriptable OptionEffect = null;
     }
 

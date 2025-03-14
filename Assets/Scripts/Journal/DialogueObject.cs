@@ -36,6 +36,13 @@ public class DialogueObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if(_activeDialogueEntry != null)
             SetDialogue(_activeDialogueEntry);
+            
+        JournalManager.Instance.UpdateEntryBookmarkCallback(this);
+    }
+
+    void OnEnable()
+    {
+        // JournalManager.Instance.UpdateEntryBookmarkCallback(this);   
     }
 
     public virtual void SetDialogue(DialogueScriptable dialogueEntry, bool isJournalEntry = false){

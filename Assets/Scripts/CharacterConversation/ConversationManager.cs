@@ -35,7 +35,7 @@ public class ConversationManager : MonoBehaviour
     /// Call this to start a conversation based on tracked progress
     /// </summary>
     /// <param name="characterTag">Insert the tag of the character whose convo to start</param>
-    public void StartConvo(String characterTag){
+    public void StartConvo(String characterTag, int convoProgress = -1){
         if(IsConvoActive()){
             Debug.LogWarning("[WARN]: Trying to start convo while another one is active");
             return;
@@ -59,6 +59,9 @@ public class ConversationManager : MonoBehaviour
             Debug.Log("[DEBUG]: Conversation Index outside of range of convo start branches");
             return;
         }
+
+        if(convoProgress != -1)
+            tracker.ConvoIndex = convoProgress;
 
         // Sets the current convo based on detected progress and the selected character
         _currentConvo = tracker.Character.ConvoStartBranches[tracker.ConvoIndex];
@@ -113,6 +116,14 @@ public class ConversationManager : MonoBehaviour
             return;
         }
 
+        // Activates the last step's self set
+        if(convoStep.SelfProgressSet != -1)
+            _characters[_currentCharacter].ConvoIndex = convoStep.SelfProgressSet;
+
+        // Activates the last step's making name known
+        if(convoStep.MakesNameKnown)
+            MakeCharacterKnown(_currentCharacter);
+
         // Activates the last step's step effect
         if(convoStep.ConvoEffect != null)
             convoStep.ConvoEffect.Effect();
@@ -130,6 +141,14 @@ public class ConversationManager : MonoBehaviour
                 CloseConvo();
                 return;
             }
+
+            // Activate branch choice progress set
+            if(_currentConvo.EndingOptions[choiceIndex].SelfProgressSet != -1)
+                _characters[_currentCharacter].ConvoIndex = _currentConvo.EndingOptions[choiceIndex].SelfProgressSet;
+            
+            // Activate branch choice making name known
+            if(_currentConvo.EndingOptions[choiceIndex].MakesNameKnown)
+                MakeCharacterKnown(_currentCharacter);
 
             // Activate branch choice effect
             if(_currentConvo.EndingOptions[choiceIndex].OptionEffect != null)

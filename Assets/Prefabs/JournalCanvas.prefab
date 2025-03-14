@@ -93,10 +93,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _panelUpPosition: {x: 0, y: -77, z: 0}
   _panelDownPosition: {x: 0, y: -1023, z: 0}
-  _timeBeforePanelFlipUp: 0.1
-  _timeBeforePanelFlipDown: 0.3
-  _panelRevealSpeed: 700
-  _panelHideSpeed: 700
+  _timeBeforePanelFlipUp: 0.3
+  _timeBeforePanelFlipDown: 0.2
+  _panelRevealSpeed: 2000
+  _panelHideSpeed: 1500
 --- !u!114 &7362600134101944246
 MonoBehaviour:
   m_ObjectHideFlags: 0

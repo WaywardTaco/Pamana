@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(RectTransform))]
-public class JournalCanvasController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class JournalCanvasController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] private Vector3 _panelUpPosition;
     [SerializeField] private Vector3 _panelDownPosition;
@@ -76,5 +76,10 @@ public class JournalCanvasController : MonoBehaviour, IPointerEnterHandler, IPoi
         }
 
         _rectTransform.anchoredPosition = targetPosition;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        _elapsedHoveringSpeed = 999999.9f;
     }
 }
