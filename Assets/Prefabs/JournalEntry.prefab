@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9427508, g: 1, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0.4605956, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -303,6 +303,7 @@ MonoBehaviour:
   _bookmark: {fileID: 5326931057331509862}
   _activeDialogueEntry: {fileID: 0}
   _entryIconReference: {fileID: 143861898188346380}
+  _backingImage: {fileID: 3288508617723426207}
 --- !u!1 &8584286855856893867
 GameObject:
   m_ObjectHideFlags: 0
