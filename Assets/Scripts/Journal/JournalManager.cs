@@ -10,12 +10,16 @@ public class JournalManager : MonoBehaviour
         [SerializeField] public bool IsBookmarked = false;
     }
 
-    [SerializeReference] private Sprite _unbookmarkedIconIdle;
-    [SerializeReference] private Sprite _unbookmarkedIconHover;
-    [SerializeReference] private Sprite _unbookmarkedIconPressed;
-    [SerializeReference] private Sprite _bookmarkedIconIdle;
-    [SerializeReference] private Sprite _bookedmarkedIconHover;
-    [SerializeReference] private Sprite _bookedmarkedIconPressed;
+    [Serializable] public class BookmarkIcons {
+        [SerializeReference] public Sprite UnbookmarkedIdle;
+        [SerializeReference] public Sprite UnbookmarkedHover;
+        [SerializeReference] public Sprite UnbookmarkedPressed;
+        [SerializeReference] public Sprite BookmarkedIdle;
+        [SerializeReference] public Sprite BookmarkedHover;
+        [SerializeReference] public Sprite BookmarkedPressed;
+    }
+
+    [SerializeField] private BookmarkIcons _bookmarkIcons = new();
 
     [SerializeField] private float _unclickCheckDelay;
 
@@ -81,57 +85,62 @@ public class JournalManager : MonoBehaviour
     }
 
     private void UpdateEntryBookmarkIcon(DialogueObject entry){
+        if(_bookmarkIcons == null){
+            Debug.LogWarning("[WARN]: Bookmark Icons are missing");
+            return;
+        } 
+
         if(entry.ActiveDialogue == null){
             return;
         }
 
         if(_dialogueTags[entry.ActiveDialogue.DialogueTag].IsBookmarked){
             if(entry.WasJustClicked){
-                if(_bookedmarkedIconPressed == null){
+                if(_bookmarkIcons.BookmarkedPressed == null){
                     Debug.LogWarning("[WARN]: Bookmarked Pressed Icon Missing");
                     return;
                 }
 
-                entry.SetBookmarkSprite(_bookedmarkedIconPressed);
+                entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedPressed);
                 StartCoroutine(DelayedUnclickCheck(entry));
             } else if (entry.IsBeingHoveredOn){
-                if(_bookedmarkedIconHover == null){
+                if(_bookmarkIcons.BookmarkedHover == null){
                     Debug.LogWarning("[WARN]: Bookmarked Hovering Icon Missing");
                     return;
                 }
                 
-                entry.SetBookmarkSprite(_bookedmarkedIconHover);
+                entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedHover);
             } else {
-                if(_bookmarkedIconIdle == null){
+                if(_bookmarkIcons.BookmarkedIdle == null){
                     Debug.LogWarning("[WARN]: Bookmarked Idle Icon Missing");
                     return;
                 }
                 
-                entry.SetBookmarkSprite(_bookmarkedIconIdle);
+                entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedIdle);
             }
         } else {     
             if(entry.WasJustClicked){
-                if(_unbookmarkedIconPressed == null){
+                if(_bookmarkIcons.UnbookmarkedPressed == null){
                     Debug.LogWarning("[WARN]: Unbookmarked Pressed Icon Missing");
                     return;
                 }
                 
-                entry.SetBookmarkSprite(_unbookmarkedIconPressed);
+                entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedPressed);
                 StartCoroutine(DelayedUnclickCheck(entry));
             } else if (entry.IsBeingHoveredOn){
-                if(_unbookmarkedIconHover == null){
+                if(_bookmarkIcons.UnbookmarkedHover == null){
                     Debug.LogWarning("[WARN]: Unbookmarked Hover Icon Missing");
                     return;
                 }
                 
-                entry.SetBookmarkSprite(_unbookmarkedIconHover);
+                entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedHover);
             } else {
-                if(_unbookmarkedIconIdle == null){
+                if(_bookmarkIcons.UnbookmarkedIdle == null){
                     Debug.LogWarning("[WARN]: Unbookmarked Idle Icon Missing");
                     return;
                 }
                 
-                entry.SetBookmarkSprite(_unbookmarkedIconIdle);
+                entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedIdle);
             }
         }
     }

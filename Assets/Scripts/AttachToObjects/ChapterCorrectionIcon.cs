@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class ChapterCorrectionIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     Transform _parentAfterDrag;
-    Transform _canvas;
+    // Transform _canvas;
 
     private bool _justFinishedDrag = false;
     public bool DidDragJustFinish() {
@@ -19,22 +19,11 @@ public class ChapterCorrectionIcon : MonoBehaviour, IDragHandler, IBeginDragHand
         }
         else return false;
     }
-    
-    [SerializeField] private String _itemTag = "";
-    private String _attachedSlotItemTag = "";
-
-    public bool DoItemTagsMatch(){
-        return !_itemTag.Equals("") && _itemTag == _attachedSlotItemTag;
-    }
-    public void AssignSlotTag(ChapterCorrectionSlot slot = null){
-        if(slot == null) _attachedSlotItemTag = "";
-        else _attachedSlotItemTag = slot.SlotItemTag; 
-    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         _parentAfterDrag = transform.parent;
-        transform.SetParent(_canvas);
+        // transform.SetParent(_canvas);
         transform.SetAsLastSibling();
         _justFinishedDrag = false;
     }
@@ -53,12 +42,12 @@ public class ChapterCorrectionIcon : MonoBehaviour, IDragHandler, IBeginDragHand
 
     void Start()
     {
-        // If the hierarchy changes this needs to change
-        GameObject Canvas = GameObject.FindGameObjectWithTag("ChapterCorrectionView");
-        if(Canvas != null)
-            _canvas = Canvas.GetComponent<Transform>();
-        else
-            Debug.LogWarning("[WARN]: Chapter Icon cannot find Chapter Correction View");
+        // // If the hierarchy changes this needs to change
+        // GameObject Canvas = GameObject.FindGameObjectWithTag("ChapterCorrectionView");
+        // if(Canvas != null)
+        //     _canvas = Canvas.GetComponent<Transform>();
+        // else
+        //     Debug.LogWarning("[WARN]: Chapter Icon cannot find Chapter Correction View");
     }
 
 }

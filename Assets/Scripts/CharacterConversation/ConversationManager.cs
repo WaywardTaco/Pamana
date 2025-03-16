@@ -23,12 +23,12 @@ public class ConversationManager : MonoBehaviour
     private int _currentConvoStepIndex = -1;
 
     /* Debug stuff */
-        [SerializeField] private bool debugStartConvo = false;
-        [SerializeField] private bool debugProgressConvoStep = false;
-        [SerializeField] private String debugCharacterToStartWith;
-        [SerializeField] private bool debugSetCharacterProgress = false;
-        [SerializeField] private int debugCharacterProgressToSet;
-        [SerializeField] private bool debugIsActiveBecomeKnown = false;
+        // [SerializeField] private bool debugStartConvo = false;
+        // [SerializeField] private bool debugProgressConvoStep = false;
+        // [SerializeField] private String debugCharacterToStartWith;
+        // [SerializeField] private bool debugSetCharacterProgress = false;
+        // [SerializeField] private int debugCharacterProgressToSet;
+        // [SerializeField] private bool debugIsActiveBecomeKnown = false;
     /* Debug stuff end */
 
     /// <summary>
@@ -314,18 +314,18 @@ public class ConversationManager : MonoBehaviour
     }
 
     void Update(){
-        if(debugStartConvo){
-            debugStartConvo = false;
-            StartConvo(debugCharacterToStartWith);
-        }
-        if(debugProgressConvoStep){
-            debugProgressConvoStep = false;
-            NextConvoStepCallback();
-        }
-        if(debugSetCharacterProgress){
-            debugSetCharacterProgress = false;
-            SetCharacterProgressTo(debugCharacterToStartWith, debugCharacterProgressToSet, debugIsActiveBecomeKnown);
-        }
+        // if(debugStartConvo){
+        //     debugStartConvo = false;
+        //     StartConvo(debugCharacterToStartWith);
+        // }
+        // if(debugProgressConvoStep){
+        //     debugProgressConvoStep = false;
+        //     NextConvoStepCallback();
+        // }
+        // if(debugSetCharacterProgress){
+        //     debugSetCharacterProgress = false;
+        //     SetCharacterProgressTo(debugCharacterToStartWith, debugCharacterProgressToSet, debugIsActiveBecomeKnown);
+        // }
     }
 
     public void Initialize(){

@@ -9,8 +9,8 @@ public class PageSpreadManager : MonoBehaviour
 {
     [SerializeField] private int _startPage;
     [SerializeField] private float _flipTime;
-    [SerializeField] private bool _debugNext;
-    [SerializeField] private bool _debugPrev;
+    // [SerializeField] private bool _debugNext;
+    // [SerializeField] private bool _debugPrev;
     [SerializeField] private List<GameObject> _pageSpreads = new();
     private int _currentSpreadNumber = -1;
     private bool _isTransitioning = false;
@@ -64,10 +64,10 @@ public class PageSpreadManager : MonoBehaviour
         yield return new WaitForSeconds(_flipTime / 2.0f);
         currentSpread.SetActive(true);
 
-        otherAnimator.SetTrigger("Reset");
         otherSpread.transform.SetAsLastSibling();
         otherAnimator.SetTrigger(otherSpreadAnimTriggerName);
         yield return new WaitForSeconds(_flipTime / 2.0f);
+        currentAnimator.SetTrigger("Reset");
         currentSpread.SetActive(false);
 
         _isTransitioning = false;
@@ -76,14 +76,14 @@ public class PageSpreadManager : MonoBehaviour
     }
 
     void Update(){
-        if(_debugNext){
-            _debugNext = false;
-            NextPage();
-        }
-        if(_debugPrev){
-            _debugPrev = false;
-            PreviousPage();
-        }
+        // if(_debugNext){
+        //     _debugNext = false;
+        //     NextPage();
+        // }
+        // if(_debugPrev){
+        //     _debugPrev = false;
+        //     PreviousPage();
+        // }
     }
 
     private void InitSpreadDict(){
