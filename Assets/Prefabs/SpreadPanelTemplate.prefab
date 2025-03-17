@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af26576651ba4f34e8ea37b680ca8a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnsToNextPage: 0
+  turnsToNextPage: 1
 --- !u!1 &5490164469946082404
 GameObject:
   m_ObjectHideFlags: 0
