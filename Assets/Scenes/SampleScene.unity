@@ -1871,6 +1871,7 @@ GameObject:
   - component: {fileID: 1382281973}
   - component: {fileID: 1382281971}
   - component: {fileID: 1382281975}
+  - component: {fileID: 1382281976}
   m_Layer: 0
   m_Name: GameplayManager
   m_TagString: Untagged
@@ -1892,12 +1893,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _viewUpdater: {fileID: 16463957}
   _characterConvoProgress:
-  - Character: {fileID: 11400000, guid: 005097c8d6bddbd4d8ee7d5cbf0558a0, type: 2}
+  - Character:
+      rid: -2
     ConvoIndex: 0
     isCharacterKnown: 0
-  - Character: {fileID: 11400000, guid: eea710200ba60a944a3c2faaab8621be, type: 2}
+  - Character:
+      rid: -2
     ConvoIndex: 0
     isCharacterKnown: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &1382281973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1963,6 +1971,22 @@ MonoBehaviour:
   - {fileID: 403193531}
   - {fileID: 954190770}
   - {fileID: 1833912526}
+--- !u!114 &1382281976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382281970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d88f11737936c34ba0a0651edb5ae83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CONVO_FILEPATH: /Convos/
+  CHARACTER_FILEPATH: /Characters/
+  _importConvo: 0
+  _convoImport: 
 --- !u!1 &1391319186
 GameObject:
   m_ObjectHideFlags: 0

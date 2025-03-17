@@ -5,8 +5,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "New Convo Branch", menuName = "Scriptables/Convos/ConvoBranch")]
-public class ConvoBranchScriptable : ScriptableObject
+[Serializable] public class ConvoBranchScriptable
 {
+    public String BranchTag;
+
     [Serializable] public class ConvoStep {
         [SerializeField] public ConvoEmotion Emotion;
         [TextArea(2,3)] public String ConvoText;
@@ -18,6 +20,7 @@ public class ConvoBranchScriptable : ScriptableObject
     }
     [Serializable] public class BranchEndOptionLink {
         [TextArea(1, 1)] public String ConvoOptionText;
+        public String NextBranchTag;
         [SerializeReference] public ConvoBranchScriptable NextConvoOption;
         [SerializeField] public int SelfProgressSet = -1;
         [SerializeField] public bool MakesNameKnown = false;
