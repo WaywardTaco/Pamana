@@ -2,7 +2,12 @@
   "CharacterTag": "Frank",
   "CharacterKnownName": "Yes its Frank",
   "CharacterUnknownName": "Maybe Frank?",
-  "CharacterPortaits": [],
+  "CharacterPortaits": [
+    {
+      "PortraitFile": "Frank.png",
+      "Emotion": 0
+    }
+  ],
   "ConvoStartBranchTags": [
     "BranchA"
   ],

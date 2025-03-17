@@ -228,7 +228,7 @@ public class ConvoImporter : MonoBehaviour
             return null;
         } 
 
-        _loadedPortraits.Add(filename, newSprite);
+        _loadedSourceIcons.Add(filename, newSprite);
 
         return newSprite;
     }
