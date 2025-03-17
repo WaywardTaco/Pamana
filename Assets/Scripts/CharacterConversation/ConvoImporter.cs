@@ -266,11 +266,17 @@ public class ConvoImporter : MonoBehaviour
         }
         if(_importCharacter){
             _importCharacter = false;
-            _workingCharacter = ImportCharacter(_characterToImport);
+            if(_loadedCharacters.ContainsKey(_characterToImport))
+                _workingCharacter = _loadedCharacters[_characterToImport];
+            else
+                _workingCharacter = ImportCharacter(_characterToImport);
         }
         if(_importConvo){
             _importConvo = false;
-            _workingConvo = ImportConvo(_convoToImport);
+            if(_loadedConvos.ContainsKey(_convoToImport))
+                _workingConvo = _loadedConvos[_convoToImport];
+            else
+                _workingConvo = ImportConvo(_convoToImport);
         }
     }
 }
