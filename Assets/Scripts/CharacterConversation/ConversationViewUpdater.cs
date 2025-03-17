@@ -53,14 +53,16 @@ public class ConversationViewUpdater : MonoBehaviour
 
         if(!_convoBoxEmotions.ContainsKey(activeEmotion)){
             Debug.LogWarning($"[WARN]: Convo Box {activeEmotion} is missing! Setting to default");
+            
+            if(!_convoBoxEmotions.ContainsKey(ConvoEmotion.Basic)){
+                Debug.LogWarning("[WARN]: Default Basic Convo Box is missing!");
+                return;
+            }
+
             activeEmotion = ConvoEmotion.Basic;
         }
 
         _activeConvoBox = _convoBoxEmotions[activeEmotion];
-        if(_activeConvoBox == null){
-            Debug.LogWarning("[WARN]: Default Basic Convo Box is missing!");
-            return;
-        }
 
         _activeConvoBox.SetActive(true);
 
@@ -158,7 +160,7 @@ public class ConversationViewUpdater : MonoBehaviour
             choice.SetActive(false);
     }
 
-    private void SetChoiceBox(GameObject choiceBox, String text){
+    private void SetChoiceBox(GameObject choiceBox, string text){
         choiceBox.SetActive(true);
         TMP_Text choiceText = choiceBox.GetComponentInChildren<TMP_Text>();
         if(choiceText == null){

@@ -25,7 +25,7 @@ public class JournalManager : MonoBehaviour
 
     [SerializeReference] private List<JournalEntryObject> _journalEntryReferences = new();
     private List<DialogueBookmarkTracker> _dialogueReferences = new();
-    private Dictionary<String, DialogueBookmarkTracker> _dialogueTags = new();
+    private Dictionary<string, DialogueBookmarkTracker> _dialogueTags = new();
     private List<DialogueBookmarkTracker> _toDisplay = new();
     public void AddJournalEntrySlot(JournalEntryObject entry){
         _journalEntryReferences.Add(entry);
@@ -43,7 +43,7 @@ public class JournalManager : MonoBehaviour
         _dialogueReferences.Add(tracker);
     }
 
-    public DialogueBookmarkTracker GetDialogueTracker(String dialogueTag){
+    public DialogueBookmarkTracker GetDialogueTracker(string dialogueTag){
         return _dialogueTags[dialogueTag];
     }
 
@@ -179,11 +179,9 @@ public class JournalManager : MonoBehaviour
         _instance = this;        
 
     }
-    void Start()
-    {
+    public void Initialize(){
         InitiazlizeDialogueTagDict();
         UpdateDisplayedJournalEntries();
-        ConversationManager.Instance.Initialize();
     }
 
     void OnDestroy()

@@ -1,0 +1,35 @@
+{
+  "BranchTag": "BranchB",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Branch B Step 1",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+    {
+      "Emotion": 0,
+      "ConvoText": "Branch B Step 2",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+    {
+      "Emotion": 0,
+      "ConvoText": "Branch B Step 3",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": [
+    
+  ]
+}

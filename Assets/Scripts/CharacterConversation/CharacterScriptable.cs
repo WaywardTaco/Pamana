@@ -5,15 +5,15 @@ using UnityEngine;
 
 [Serializable] public class CharacterScriptable : DialogueSourceScriptable {
     [Serializable] public class PortraitEmotion {
-        public String PortraitFile;
+        public string PortraitFile;
         public ConvoEmotion Emotion;
     }
 
-    public String CharacterTag;
-    public String CharacterKnownName;
-    public String CharacterUnknownName;
+    public string CharacterTag;
+    public string CharacterKnownName;
+    public string CharacterUnknownName;
     public List<PortraitEmotion> CharacterPortaits = new();
-    public List<String> ConvoStartBranchTags = new();
+    public List<string> ConvoStartBranchTags = new();
 
     public Sprite GetPortrait(ConvoEmotion emotion){
         if(CharacterPortaits.Count <= 0){

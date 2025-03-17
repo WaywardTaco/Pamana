@@ -9,17 +9,17 @@ using Unity.VisualScripting;
 public class ConversationManager : MonoBehaviour
 {
     [Serializable] public class CharacterConvoTracker {
-        [SerializeReference] public CharacterScriptable Character;
+        [SerializeReference] public String CharacterTag = "";
         [SerializeField] public int ConvoIndex;
         [SerializeField] public bool isCharacterKnown = false;
     }
 
     [SerializeField] private ConversationViewUpdater _viewUpdater;
     [SerializeField] private List<CharacterConvoTracker> _characterConvoProgress = new();
-    private Dictionary<String, CharacterConvoTracker> _characters = new();
+    private Dictionary<string, CharacterConvoTracker> _characters = new();
 
-    private ConvoBranchScriptable _currentConvo = null;
-    private String _currentCharacter;
+    private ConvoBranchScriptable _currentConvo = new();
+    private string _currentCharacter;
     private int _currentConvoStepIndex = -1;
 
     /* Debug stuff */
@@ -35,7 +35,7 @@ public class ConversationManager : MonoBehaviour
     /// Call this to start a conversation based on tracked progress
     /// </summary>
     /// <param name="characterTag">Insert the tag of the character whose convo to start</param>
-    public void StartConvo(String characterTag, int convoProgress = -1){
+    public void StartConvo(string characterTag, int convoProgress = -1){
         if(IsConvoActive()){
             Debug.LogWarning("[WARN]: Trying to start convo while another one is active");
             return;
@@ -55,7 +55,13 @@ public class ConversationManager : MonoBehaviour
             Debug.Log("[DEBUG]: Conversation Disabled");
             return;
         }
-        if(tracker.ConvoIndex < -1 || tracker.ConvoIndex >= tracker.Character.ConvoStartBranches.Count){
+        CharacterScriptable character = ConvoImporter.Instance.GetCharacter(tracker.CharacterTag);
+        if(character == null){
+            Debug.LogWarning($"[WARN]: Tried to start a convo for {tracker.CharacterTag} but is not imported");
+            return;
+        }
+
+        if(tracker.ConvoIndex < -1 || tracker.ConvoIndex >= character.ConvoStartBranchTags.Count){
             Debug.Log("[DEBUG]: Conversation Index outside of range of convo start branches");
             return;
         }
@@ -64,7 +70,7 @@ public class ConversationManager : MonoBehaviour
             tracker.ConvoIndex = convoProgress;
 
         // Sets the current convo based on detected progress and the selected character
-        _currentConvo = tracker.Character.ConvoStartBranches[tracker.ConvoIndex];
+        _currentConvo = ConvoImporter.Instance.GetConvo(ConvoImporter.Instance.GetCharacter(tracker.CharacterTag).ConvoStartBranchTags[tracker.ConvoIndex]);
         _currentConvoStepIndex = 0;
         _currentCharacter = characterTag;
 
@@ -92,7 +98,9 @@ public class ConversationManager : MonoBehaviour
     }
 
     public bool IsConvoActive(){
-        return _currentConvo != null;
+        if(_currentConvo == null) return false;
+
+        return _currentConvo.BranchTag.CompareTo("") != 0;
     }
 
     /// <summary>
@@ -158,13 +166,13 @@ public class ConversationManager : MonoBehaviour
             _currentConvoStepIndex = 0;
 
             // Close the convo if no branch exists
-            if(_currentConvo.EndingOptions[choiceIndex].NextConvoOption == null){
+            if(choiceIndex >= _currentConvo.EndingOptions.Count || _currentConvo.EndingOptions[choiceIndex].NextBranchTag.CompareTo("") == 0){
                 Debug.Log("[DEBUG]: No assosciated next convo, ending convo");
                 CloseConvo();
                 return;
             }
 
-            _currentConvo = _currentConvo.EndingOptions[choiceIndex].NextConvoOption;
+            _currentConvo = ConvoImporter.Instance.GetConvo(_currentConvo.EndingOptions[choiceIndex].NextBranchTag);
 
         } else {
             // Logic for progressing to next step or ending convo
@@ -189,7 +197,7 @@ public class ConversationManager : MonoBehaviour
     /// <param name="characterTag"></param>
     /// <param name="convoIndex"></param>
     /// <param name="isBecomeKnown"></param>
-    public void SetCharacterProgressTo(String characterTag, int convoIndex, bool isBecomeKnown = false){
+    public void SetCharacterProgressTo(string characterTag, int convoIndex, bool isBecomeKnown = false){
         if(!_characters.ContainsKey(characterTag)){
             Debug.LogWarning($"[WARN]: Unknown Character Tag: {characterTag}");
             return;
@@ -205,7 +213,7 @@ public class ConversationManager : MonoBehaviour
     /// A function for updating the known status of a character
     /// </summary>
     /// <param name="updateValue"></param>
-    public void MakeCharacterKnown(String characterTag){
+    public void MakeCharacterKnown(string characterTag){
         if(!_characters.ContainsKey(characterTag)){
             Debug.LogWarning($"[WARN]: Unknown Character Tag: {characterTag}");
             return;
@@ -227,7 +235,7 @@ public class ConversationManager : MonoBehaviour
             if(_currentConvo.EndingOptions.Count > 0){
                 // Loads the choices view
                 _viewUpdater.SetChoicesView(
-                    _characters[_currentCharacter].Character,
+                    ConvoImporter.Instance.GetCharacter(_characters[_currentCharacter].CharacterTag),
                     _currentConvo,        
                     _characters[_currentCharacter].isCharacterKnown 
                 );
@@ -237,7 +245,7 @@ public class ConversationManager : MonoBehaviour
     
         // Loads the basic convo view
         _viewUpdater.SetConvoView(
-            _characters[_currentCharacter].Character,
+            ConvoImporter.Instance.GetCharacter(_characters[_currentCharacter].CharacterTag),
             GetCurrentConvoStep(),
             _characters[_currentCharacter].isCharacterKnown
         );
@@ -262,20 +270,29 @@ public class ConversationManager : MonoBehaviour
     private void LoadCharacters(){
         _characters.Clear();
         foreach(CharacterConvoTracker tracker in _characterConvoProgress){
-            _characters.Add(tracker.Character.CharacterTag, tracker);
+            if(_characters.ContainsKey(tracker.CharacterTag)){
+                Debug.LogWarning($"[WARN]: Tried to insert {tracker.CharacterTag} twice");
+                continue;
+            }
+            _characters.Add(tracker.CharacterTag, tracker);
         }
     }
 
     private void InitializeConvosAsDialogue(){
         foreach(CharacterConvoTracker tracker in _characterConvoProgress){
-            int numberOfBranches = tracker.Character.ConvoStartBranches.Count;
+            CharacterScriptable character = ConvoImporter.Instance.GetCharacter(tracker.CharacterTag);
+            if(character == null){
+                Debug.LogWarning($"[WARN]: Trying to initialize the dialogues of {tracker.CharacterTag} but failed");
+                continue;
+            }
+            int numberOfBranches = character.ConvoStartBranchTags.Count;
             for(int i = 0; i < numberOfBranches; i++){
-                ConvoBranchScriptable convoBranch = tracker.Character.ConvoStartBranches[i];
+                ConvoBranchScriptable convoBranch = ConvoImporter.Instance.GetConvo(ConvoImporter.Instance.GetCharacter(tracker.CharacterTag).ConvoStartBranchTags[i]);
                 
                 RecursiveConvoAsDialogueConversion(
                     tracker,
                     convoBranch,
-                    tracker.Character.CharacterTag + "_Branch" + i
+                    ConvoImporter.Instance.GetCharacter(tracker.CharacterTag).CharacterTag + "_Branch" + i
                 );
             }
         }
@@ -283,7 +300,7 @@ public class ConversationManager : MonoBehaviour
         JournalManager.Instance.ReinitDialogueTagDict();
     }
 
-    private void RecursiveConvoAsDialogueConversion(CharacterConvoTracker tracker, ConvoBranchScriptable branch, String runningTagName){
+    private void RecursiveConvoAsDialogueConversion(CharacterConvoTracker tracker, ConvoBranchScriptable branch, string runningTagName){
         if(branch == null) return;
         
         int subBranchCount = branch.EndingOptions.Count;
@@ -292,7 +309,7 @@ public class ConversationManager : MonoBehaviour
 
             RecursiveConvoAsDialogueConversion(
                 tracker,
-                branchLink.NextConvoOption,
+                ConvoImporter.Instance.GetConvo(branchLink.NextBranchTag),
                 runningTagName + "_SubBranch" + i
             );
         }
@@ -304,7 +321,7 @@ public class ConversationManager : MonoBehaviour
 
             JournalManager.Instance.AddDialogueReference(
                 DialogueScriptable.CreateInstance(
-                    tracker.Character,
+                    ConvoImporter.Instance.GetCharacter(tracker.CharacterTag),
                     step.DialogueTag,
                     step.ConvoText,
                     step.JournalText

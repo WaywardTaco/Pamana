@@ -1,0 +1,55 @@
+{
+  "BranchTag": "BranchA",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Branch A Step 1",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+    {
+      "Emotion": 0,
+      "ConvoText": "Branch A Step 2",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+    {
+      "Emotion": 0,
+      "ConvoText": "Branch A Step 3",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": [
+    {
+      "ConvoOptionText": "To Branch B",
+      "NextBranchTag": "BranchB",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "To Branch C",
+      "NextBranchTag": "BranchC",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "End Convo",
+      "NextBranchTag": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    }
+  ]
+}

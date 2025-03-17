@@ -23,11 +23,11 @@ public class JournalEntryObject : DialogueObject
             Debug.LogWarning("[WARN]: Entry Source Missing");
             return;
         }
-        if(dialogue.EntrySource.SourceIcon == null){
+        if(ConvoImporter.Instance.GetSourceIcon(dialogue.EntrySource.IconFile) == null){
             _entryIconReference.enabled = false;
             return;
         } 
         _entryIconReference.enabled = true;
-        _entryIconReference.sprite = dialogue.EntrySource.SourceIcon;
+        _entryIconReference.sprite = ConvoImporter.Instance.GetSourceIcon(dialogue.EntrySource.IconFile);
     }
 }
