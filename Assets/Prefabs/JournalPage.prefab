@@ -64,14 +64,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.43867922, g: 1, b: 0.94407594, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 7ca24e3aaa5e704468f7b2394ec22528, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 5
 --- !u!114 &6854907957002138078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,12 +94,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
-    m_Right: 10
-    m_Top: 10
-    m_Bottom: 0
+    m_Left: 87
+    m_Right: 75
+    m_Top: 40
+    m_Bottom: 40
   m_ChildAlignment: 0
-  m_Spacing: 12
+  m_Spacing: -2.73
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -846,14 +846,6 @@ PrefabInstance:
     - target: {fileID: 4428292890451648891, guid: be08237e52255684e95164f3e6395fbf, type: 3}
       propertyPath: m_Name
       value: JournalEntry
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857252133956389531, guid: be08237e52255684e95164f3e6395fbf, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -76.84808
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857252133956389531, guid: be08237e52255684e95164f3e6395fbf, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -52.55307
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
