@@ -12,11 +12,7 @@ public class JournalManager : MonoBehaviour
 
     [Serializable] public class BookmarkIcons {
         [SerializeReference] public Sprite UnbookmarkedIdle;
-        [SerializeReference] public Sprite UnbookmarkedHover;
-        [SerializeReference] public Sprite UnbookmarkedPressed;
         [SerializeReference] public Sprite BookmarkedIdle;
-        [SerializeReference] public Sprite BookmarkedHover;
-        [SerializeReference] public Sprite BookmarkedPressed;
     }
 
     [SerializeField] private BookmarkIcons _bookmarkIcons = new();
@@ -96,51 +92,21 @@ public class JournalManager : MonoBehaviour
 
         if(_dialogueTags[entry.ActiveDialogue.DialogueTag].IsBookmarked){
             if(entry.WasJustClicked){
-                if(_bookmarkIcons.BookmarkedPressed == null){
-                    Debug.LogWarning("[WARN]: Bookmarked Pressed Icon Missing");
-                    return;
-                }
-
-                entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedPressed);
+                entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedIdle, 0.95f);
                 StartCoroutine(DelayedUnclickCheck(entry));
             } else if (entry.IsBeingHoveredOn){
-                if(_bookmarkIcons.BookmarkedHover == null){
-                    Debug.LogWarning("[WARN]: Bookmarked Hovering Icon Missing");
-                    return;
-                }
-                
-                entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedHover);
+                entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedIdle, 1.05f);
             } else {
-                if(_bookmarkIcons.BookmarkedIdle == null){
-                    Debug.LogWarning("[WARN]: Bookmarked Idle Icon Missing");
-                    return;
-                }
-                
-                entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedIdle);
+                entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedIdle, 1.0f);
             }
         } else {     
             if(entry.WasJustClicked){
-                if(_bookmarkIcons.UnbookmarkedPressed == null){
-                    Debug.LogWarning("[WARN]: Unbookmarked Pressed Icon Missing");
-                    return;
-                }
-                
-                entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedPressed);
+                entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedIdle, 0.95f);
                 StartCoroutine(DelayedUnclickCheck(entry));
             } else if (entry.IsBeingHoveredOn){
-                if(_bookmarkIcons.UnbookmarkedHover == null){
-                    Debug.LogWarning("[WARN]: Unbookmarked Hover Icon Missing");
-                    return;
-                }
-                
-                entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedHover);
+                entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedIdle, 1.05f);
             } else {
-                if(_bookmarkIcons.UnbookmarkedIdle == null){
-                    Debug.LogWarning("[WARN]: Unbookmarked Idle Icon Missing");
-                    return;
-                }
-                
-                entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedIdle);
+                entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedIdle, 1.0f);
             }
         }
     }

@@ -59,9 +59,13 @@ public class DialogueObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             _dialogueText.text = _activeDialogueEntry.DialogueText;
     }
 
-    public void SetBookmarkSprite(Sprite sprite, bool deactivate = false){
+    public void SetBookmarkSprite(Sprite sprite, float scalar, bool deactivate = false){
         _bookmark.sprite = sprite;
         _bookmark.gameObject.SetActive(!deactivate);
+
+        if(_bookmark.gameObject.TryGetComponent<RectTransform>(out var rectTransform)){
+            rectTransform.localScale = new Vector3(scalar, scalar, scalar);
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
