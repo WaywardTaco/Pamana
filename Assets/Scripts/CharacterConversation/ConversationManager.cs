@@ -221,7 +221,7 @@ public class ConversationManager : MonoBehaviour
 
         CharacterConvoTracker tracker = _characters[characterTag];
         if(tracker.isCharacterKnown){
-            Debug.LogWarning("[WARN]: Character was already known");
+            // Debug.LogWarning("[WARN]: Character was already known");
             return;
         }
         tracker.isCharacterKnown = true;

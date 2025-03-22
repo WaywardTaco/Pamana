@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ConvoStarterObject : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private String _characterTag;
+    [SerializeField] private string _characterTag;
     [SerializeField] private int _convoProgressSet = -1;
 
     public void OnPointerClick(PointerEventData eventData){

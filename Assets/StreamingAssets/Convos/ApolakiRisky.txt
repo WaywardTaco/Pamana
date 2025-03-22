@@ -1,0 +1,15 @@
+{
+  "BranchTag": "ApolakiRisky",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Fear? You should fear the sun, for it does not show mercy.",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": []
+}

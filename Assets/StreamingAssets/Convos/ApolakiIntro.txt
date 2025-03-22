@@ -1,0 +1,37 @@
+{
+  "BranchTag": "ApolakiIntro",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Who are you? Why do you walk this battlefield as if it belongs to you?",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": [
+    {
+      "ConvoOptionText": "I’m just a traveler, trying to understand what happened here.",
+      "NextBranchTag": "ApolakiNeutral",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "Should I be afraid of you?",
+      "NextBranchTag": "ApolakiRisky",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "I was drawn here by your story. I think you have something to tell me.",
+      "NextBranchTag": "ApolakiConfident",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    }
+  ]
+}

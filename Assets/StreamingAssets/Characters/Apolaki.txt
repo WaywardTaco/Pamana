@@ -1,0 +1,15 @@
+{
+  "CharacterTag": "Apolaki",
+  "CharacterKnownName": "Apolaki",
+  "CharacterUnknownName": "A mysterious god",
+  "CharacterPortaits": [
+    {
+      "PortraitFile": "Frank.png",
+      "Emotion": 0
+    }
+  ],
+  "ConvoStartBranchTags": [
+    "ApolakiIntro"
+  ],
+  "IconFile": "Frank.png"
+}

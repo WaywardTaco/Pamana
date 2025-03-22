@@ -89,12 +89,14 @@ public class ConvoImporter : MonoBehaviour
         string[] importLines = File.ReadAllLines(path);
         string importString = string.Join("", importLines);
 
-        ConvoBranchScriptable convo = JsonConvert.DeserializeObject<ConvoBranchScriptable>(importString);
+        ConvoBranchScriptable convo = null;
+        try {
+            convo = JsonConvert.DeserializeObject<ConvoBranchScriptable>(importString);
 
-        if(convo == null){
-            Debug.LogWarning($"[WARN]: Failed to json convert the following file \"{importString}\"");
+        } catch (Exception e) {
+            Debug.LogWarning($"[WARN]: Failed to import import \"{path}\" with error: {e.Message}");
             return null;
-        } 
+        }
 
         if(convoTag.CompareTo(convo.BranchTag) != 0){
             Debug.LogWarning($"[WARN]: Convo expected tag does not match actual tag for (Import: {convo.BranchTag}) {path}, fixing");

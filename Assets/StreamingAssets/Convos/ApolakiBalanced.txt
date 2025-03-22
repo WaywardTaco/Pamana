@@ -1,0 +1,24 @@
+{
+  "BranchTag": "ApolakiBalanced",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Hah! You make it sound so simple. But yes... in the end, I did.",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+    {
+      "Emotion": 0,
+      "ConvoText": "Balance is not weakness. It is wisdom. And perhaps, after everything, I have finally learned that.",
+      "JournalText": "The sky united",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": []
+}

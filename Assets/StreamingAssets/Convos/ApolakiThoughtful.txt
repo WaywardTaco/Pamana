@@ -1,0 +1,24 @@
+{
+  "BranchTag": "ApolakiThoughtful",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Regret is a heavy thing to carry. I once believed that strength meant never yielding. But when I saw Mayari standing there, wounded yet unbowed... I knew I had been wrong.",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+    {
+      "Emotion": 0,
+      "ConvoText": "She deserved more. And so, I stepped aside. Perhaps that is the lesson I learned too late.",
+      "JournalText": "The sky united",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": []
+}

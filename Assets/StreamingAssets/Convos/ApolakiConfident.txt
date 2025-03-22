@@ -1,0 +1,46 @@
+{
+  "BranchTag": "ApolakiConfident",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "A story? Hah. Stories twist the truth, just as shadows twist the shape of a tree. But if you wish to listen, then listen well.",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+    {
+      "Emotion": 0,
+      "ConvoText": "Before I start, tell me, traveler… do you even know the name of the one who stands before you?",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+  ],
+  "EndingOptions": [
+    {
+      "ConvoOptionText": "You're the one who blinded Mayari.",
+      "NextBranchTag": "ApolakiAccusatory",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "Does it matter? You're just another warrior lost to time.",
+      "NextBranchTag": "ApolakiDisrespectful",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "You are Apolaki, the Bringer of Daylight.",
+      "NextBranchTag": "ApolakiRespectful",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    }
+  ]
+}

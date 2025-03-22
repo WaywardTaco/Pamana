@@ -1,0 +1,24 @@
+{
+  "BranchTag": "ApolakiEmpathy",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Yes. That is who she is. Even in darkness, she found her own light. And I... I was the fool who thought I could take it from her.",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+    {
+      "Emotion": 0,
+      "ConvoText": "She never needed to take the sky from me. She only needed to show me that it was never mine to hoard.",
+      "JournalText": "The sky united",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": []
+}

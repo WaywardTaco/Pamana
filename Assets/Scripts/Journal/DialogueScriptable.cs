@@ -7,13 +7,13 @@ using UnityEngine;
 public class DialogueScriptable : ScriptableObject
 {
     [SerializeReference] public DialogueSourceScriptable EntrySource;
-    [SerializeField] public String DialogueTag;
+    [SerializeField] public string DialogueTag;
     [TextArea(3, 5)]
-    [SerializeField] public String DialogueText = "";
+    [SerializeField] public string DialogueText = "";
     [TextArea(1, 3)]
-    [SerializeField] public String JournalText = "";
+    [SerializeField] public string JournalText = "";
 
-    public static DialogueScriptable CreateInstance(DialogueSourceScriptable source, String tag, String dialogueText, String journalText){
+    public static DialogueScriptable CreateInstance(DialogueSourceScriptable source, string tag, string dialogueText, string journalText){
         DialogueScriptable instance = ScriptableObject.CreateInstance<DialogueScriptable>();
         
         instance.EntrySource = source;

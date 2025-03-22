@@ -1,0 +1,15 @@
+{
+  "BranchTag": "ApolakiDisrespectful",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Just another warrior? If that is what you believe, then you are not ready to walk this battlefield.",
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": []
+}

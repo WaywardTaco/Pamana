@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class ChapterCorrectionIcon : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    Transform _parentAfterDrag;
+    // Transform _parentAfterDrag;
     // Transform _canvas;
 
     private bool _justFinishedDrag = false;
@@ -22,7 +22,7 @@ public class ChapterCorrectionIcon : MonoBehaviour, IDragHandler, IBeginDragHand
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        _parentAfterDrag = transform.parent;
+        // _parentAfterDrag = transform.parent;
         // transform.SetParent(_canvas);
         transform.SetAsLastSibling();
         _justFinishedDrag = false;
@@ -37,7 +37,7 @@ public class ChapterCorrectionIcon : MonoBehaviour, IDragHandler, IBeginDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         _justFinishedDrag = true;
-        transform.SetParent(_parentAfterDrag);
+        // transform.SetParent(_parentAfterDrag);
     }
 
     void Start()
