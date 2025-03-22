@@ -1,10 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEditor.SearchService;
-using UnityEngine.TextCore.Text;
-using Unity.VisualScripting;
 
 public class ConversationManager : MonoBehaviour
 {
