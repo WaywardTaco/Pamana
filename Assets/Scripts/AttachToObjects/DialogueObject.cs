@@ -21,17 +21,7 @@ public class DialogueObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         get { return _isBeingHoveredOn;}
     }
 
-    private bool _wasJustClicked = false;
-    public bool WasJustClicked {
-        get {
-            if(_wasJustClicked){
-                _wasJustClicked = false;
-                return true;
-            } else 
-                return false;
-        }
-    }
-
+    public bool WasClicked = false;
     void Start()
     {
         if(_activeDialogueEntry != null)
@@ -84,8 +74,13 @@ public class DialogueObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        _wasJustClicked = true;
+        WasClicked = true;
         // Debug.Log("[Debug]: Clicked Dialogue To Bookmark");
         JournalManager.Instance.UpdateEntryBookmarkCallback(this, true);
+    }
+
+    void Update()
+    {
+        JournalManager.Instance.UpdateEntryBookmarkCallback(this);
     }
 }

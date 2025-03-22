@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3450704811322591582}
   - component: {fileID: 3618205212575267208}
   - component: {fileID: 472625189888607635}
+  - component: {fileID: 3620670947597870273}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -33,11 +34,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8431515232712179373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: -0.000000035390258, y: 0.9999996}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -40.000015}
+  m_SizeDelta: {x: 773.0001, y: 0}
+  m_Pivot: {x: 0, y: 0.9999996}
 --- !u!222 &3450704811322591582
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -66,11 +67,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'kljlajdkljalkdjk kljkldjaslk djlasjdlkj lkjadlkj lkjadlkjaslkd akljdk
-    dhada jhdkjahd akdha jhak fkjhakf akh khfak fak iduaosjdoi asodjaoisdj aosijdokas
-    sandlkjanskldj asdjklasjdlkajdkljsakdkasjdlkasjdkl asjdlkasjdlkjskd
+  m_text: 'Some filler decision text here
 
-'
+    longer text'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -97,8 +96,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -107,9 +106,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -1.18
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -32.4
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -161,6 +160,20 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &3620670947597870273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600785237165399835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &6603739440482614480
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +188,7 @@ GameObject:
   - component: {fileID: 3007851436765339312}
   - component: {fileID: 6892409342092326353}
   - component: {fileID: 2909143409425284961}
+  - component: {fileID: 4763893029347490784}
   m_Layer: 0
   m_Name: ChoiceBox
   m_TagString: Untagged
@@ -223,14 +237,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.1745283, b: 0.1745283, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 8286914e1d2870444b91d5a843c56a13, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -239,7 +253,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 10
 --- !u!114 &3007851436765339312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,16 +287,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 20
-    m_Right: 20
-    m_Top: 10
-    m_Bottom: 10
+    m_Left: 50
+    m_Right: 70
+    m_Top: 40
+    m_Bottom: 40
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
+  m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -299,3 +313,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConvoOptionIndex: -1
+--- !u!114 &4763893029347490784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603739440482614480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 1

@@ -91,8 +91,8 @@ public class JournalManager : MonoBehaviour
         }
 
         if(_dialogueTags[entry.ActiveDialogue.DialogueTag].IsBookmarked){
-            if(entry.WasJustClicked){
-                entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedIdle, 0.95f);
+            if(entry.WasClicked){
+                entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedIdle, 0.90f);
                 StartCoroutine(DelayedUnclickCheck(entry));
             } else if (entry.IsBeingHoveredOn){
                 entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedIdle, 1.05f);
@@ -100,8 +100,8 @@ public class JournalManager : MonoBehaviour
                 entry.SetBookmarkSprite(_bookmarkIcons.BookmarkedIdle, 1.0f);
             }
         } else {     
-            if(entry.WasJustClicked){
-                entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedIdle, 0.95f);
+            if(entry.WasClicked){
+                entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedIdle, 0.90f);
                 StartCoroutine(DelayedUnclickCheck(entry));
             } else if (entry.IsBeingHoveredOn){
                 entry.SetBookmarkSprite(_bookmarkIcons.UnbookmarkedIdle, 1.05f);
@@ -113,6 +113,7 @@ public class JournalManager : MonoBehaviour
     
     private IEnumerator DelayedUnclickCheck(DialogueObject entry){
         yield return new WaitForSeconds(_unclickCheckDelay);
+        entry.WasClicked = false;
         UpdateEntryBookmarkCallback(entry);
     }
 
