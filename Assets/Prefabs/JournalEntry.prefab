@@ -71,8 +71,8 @@ MonoBehaviour:
     jaskdjalkdj jsadklj adjlkasdjklajsdkljakd aksldjlkasjdklajdlkjaslkdjlkajdkjaskdjaksjdklaj
     jdkslajdklaj"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 514d7b39e216e7146aac668f98960471, type: 2}
+  m_sharedMaterial: {fileID: -9195963859916717002, guid: 514d7b39e216e7146aac668f98960471, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -302,6 +302,7 @@ MonoBehaviour:
   _dialogueText: {fileID: 6442927991361372739}
   _bookmark: {fileID: 5326931057331509862}
   _activeDialogueEntry: {fileID: 0}
+  WasClicked: 0
   _entryIconReference: {fileID: 143861898188346380}
   _backingImage: {fileID: 3288508617723426207}
 --- !u!1 &8584286855856893867
@@ -466,7 +467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dbd07bf37bc1bff488c9b82d45df5bca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9afbfd72601d1a74d86055bd3a9e59eb, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
