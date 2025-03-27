@@ -29,7 +29,7 @@
     {
       "ConvoOptionText": "I was drawn here by your story. I think you have something to tell me.",
       "NextBranchTag": "ApolakiConfident",
-      "SelfProgressSet": -1,
+      "SelfProgressSet": 1,
       "MakesNameKnown": false,
       "OptionEffect": null
     }

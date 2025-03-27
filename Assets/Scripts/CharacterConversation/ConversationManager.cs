@@ -87,7 +87,7 @@ public class ConversationManager : MonoBehaviour
         _currentCharacter = null;
 
         // TODO: Proper clean up of convo
-        Debug.Log("[TODO]: Do proper clean up of conversation");
+        // Debug.Log("[TODO]: Do proper clean up of conversation");
         
         _viewUpdater.CloseDialogueView();
         _viewUpdater.gameObject.SetActive(false);
@@ -221,7 +221,7 @@ public class ConversationManager : MonoBehaviour
             return;
         }
         tracker.isCharacterKnown = true;
-        Debug.Log("[TODO]: Insert code for character reveal here");
+        // Debug.Log("[TODO]: Insert code for character reveal here");
     }
 
     private void LoadConvoStep(){

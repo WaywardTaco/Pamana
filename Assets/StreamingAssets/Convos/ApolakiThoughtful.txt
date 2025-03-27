@@ -11,7 +11,7 @@
       "DialogueTag": ""
     },
     {
-      "Emotion": 0,
+      "Emotion": 3,
       "ConvoText": "She deserved more. And so, I stepped aside. Perhaps that is the lesson I learned too late.",
       "JournalText": "The sky united",
       "SelfProgressSet": -1,

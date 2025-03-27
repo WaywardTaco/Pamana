@@ -2,7 +2,7 @@
   "BranchTag": "ApolakiRespectful",
   "ConvoSteps": [
     {
-      "Emotion": 0,
+      "Emotion": 1,
       "ConvoText": "So, you do know of me. Then you understand the weight I carry. Good. Then listen well, for this is not just a tale—it is a truth carved into the sky itself.",
       "JournalText": "",
       "SelfProgressSet": -1,
@@ -20,7 +20,7 @@
       "DialogueTag": ""
     },
     {
-      "Emotion": 0,
+      "Emotion": 3,
       "ConvoText": "She did not kneel. She did not falter. And so, we fought.",
       "JournalText": "Mayari did not fight for power, but for balance.",
       "SelfProgressSet": -1,
@@ -47,7 +47,7 @@
       "DialogueTag": ""
     },
     {
-      "Emotion": 0,
+      "Emotion": 3,
       "ConvoText": "I looked upon my sister, and I saw not a defeated enemy, but a wounded equal. And so, I listened. I cast aside my pride and shared the sky with her.",
       "JournalText": "Their truce: One rules the day, the other the night.",
       "SelfProgressSet": -1,
@@ -56,7 +56,7 @@
       "DialogueTag": ""
     },
     {
-      "Emotion": 0,
+      "Emotion": 3,
       "ConvoText": "Now I rule the day, and she the night. But her light is softer, dimmer… because of me. That is the price of my pride.",
       "JournalText": "",
       "SelfProgressSet": -1,

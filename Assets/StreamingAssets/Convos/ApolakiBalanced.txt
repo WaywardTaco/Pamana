@@ -2,7 +2,7 @@
   "BranchTag": "ApolakiBalanced",
   "ConvoSteps": [
     {
-      "Emotion": 0,
+      "Emotion": 1,
       "ConvoText": "Hah! You make it sound so simple. But yes... in the end, I did.",
       "JournalText": "",
       "SelfProgressSet": -1,

@@ -54,6 +54,7 @@ public class ConvoImporter : MonoBehaviour
             Sprite portrait = ImportCharacterPortrait(portraitFile);
             if(portrait == null) return null;
         }
+        Debug.Log($"[DEBUG]: Returning portrait {portraitFile}");
 
         return _loadedPortraits[portraitFile];
     }
@@ -204,6 +205,7 @@ public class ConvoImporter : MonoBehaviour
         }
 
         _loadedPortraits.Add(filename, newSprite);
+        Debug.Log($"[DEBUG]: Successfully loaded portrait: {path}");
 
         return newSprite;
     }

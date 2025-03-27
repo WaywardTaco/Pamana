@@ -2,7 +2,7 @@
   "BranchTag": "ApolakiConfident",
   "ConvoSteps": [
     {
-      "Emotion": 0,
+      "Emotion": 1,
       "ConvoText": "A story? Hah. Stories twist the truth, just as shadows twist the shape of a tree. But if you wish to listen, then listen well.",
       "JournalText": "",
       "SelfProgressSet": -1,

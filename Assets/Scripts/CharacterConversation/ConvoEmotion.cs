@@ -1,3 +1,4 @@
 public enum ConvoEmotion {
-    Basic
+    Basic,
+    Happy, Frustrated, Remorse 
 }
