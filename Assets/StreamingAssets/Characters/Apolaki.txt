@@ -22,7 +22,8 @@
   ],
   "ConvoStartBranchTags": [
     "ApolakiIntro",
-    "ApolakiConfident"
+    "ApolakiConfident",
+    "ApolakiRespectful"
   ],
   "IconFile": "ApolakiNeutral.png"
 }

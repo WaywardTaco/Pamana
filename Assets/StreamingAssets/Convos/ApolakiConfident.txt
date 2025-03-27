@@ -38,7 +38,7 @@
     {
       "ConvoOptionText": "You are Apolaki, the Bringer of Daylight.",
       "NextBranchTag": "ApolakiRespectful",
-      "SelfProgressSet": -1,
+      "SelfProgressSet": 2,
       "MakesNameKnown": false,
       "OptionEffect": null
     }
