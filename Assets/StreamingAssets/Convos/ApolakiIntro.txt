@@ -5,6 +5,7 @@
       "Emotion": 0,
       "ConvoText": "Who are you? Why do you walk this battlefield as if it belongs to you?",
       "JournalText": "",
+      "SelfBookmarkSet": false,
       "SelfProgressSet": -1,
       "MakesNameKnown": false,
       "ConvoEffect": null,

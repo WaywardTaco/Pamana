@@ -5,6 +5,7 @@
       "Emotion": 2,
       "ConvoText": "You speak only of what I have done, not of who I am. I am more than a single moment of regret. Speak again, and this time, tell me my name.",
       "JournalText": "",
+      "SelfBookmarkSet": false,
       "SelfProgressSet": -1,
       "MakesNameKnown": false,
       "ConvoEffect": null,

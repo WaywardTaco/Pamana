@@ -27,7 +27,7 @@ public class DialogueObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if(_activeDialogueEntry != null)
             SetDialogue(_activeDialogueEntry);
             
-        JournalManager.Instance.UpdateEntryBookmarkCallback(this);
+        JournalManager.Instance.UpdateDialogueObjectCallback(this);
     }
 
     void OnEnable()
@@ -62,25 +62,25 @@ public class DialogueObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         _isBeingHoveredOn = true;
         // Debug.Log("[Debug]: Hover On Dialogue Bookmark");
-        JournalManager.Instance.UpdateEntryBookmarkCallback(this);
+        JournalManager.Instance.UpdateDialogueObjectCallback(this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         _isBeingHoveredOn = false;
         // Debug.Log("[Debug]: Hover Off Dialogue Bookmark");
-        JournalManager.Instance.UpdateEntryBookmarkCallback(this);
+        JournalManager.Instance.UpdateDialogueObjectCallback(this);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         WasClicked = true;
         // Debug.Log("[Debug]: Clicked Dialogue To Bookmark");
-        JournalManager.Instance.UpdateEntryBookmarkCallback(this, true);
+        JournalManager.Instance.UpdateDialogueObjectCallback(this, true);
     }
 
     void Update()
     {
-        JournalManager.Instance.UpdateEntryBookmarkCallback(this);
+        JournalManager.Instance.UpdateDialogueObjectCallback(this);
     }
 }

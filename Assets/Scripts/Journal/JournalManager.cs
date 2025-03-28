@@ -43,32 +43,34 @@ public class JournalManager : MonoBehaviour
         return _dialogueTags[dialogueTag];
     }
 
-    public void UpdateEntryBookmarkCallback(DialogueObject entry, bool wasClick = false){
+    public void UpdateDialogueObjectCallback(DialogueObject entry, bool wasClick = false){
         if(entry.ActiveDialogue != null && !_dialogueTags.ContainsKey(entry.ActiveDialogue.DialogueTag)){
             AddDialogueReference(entry.ActiveDialogue);
             ReinitDialogueTagDict();
         }
 
-        if(wasClick){
-            if(entry.ActiveDialogue != null){
-                DialogueBookmarkTracker tracker = _dialogueTags[entry.ActiveDialogue.DialogueTag];
-
-                if(!tracker.IsBookmarked && _toDisplay.Count >= _journalEntryReferences.Count){
-                    Debug.LogWarning("[TODO]: Display Feedback that a dialogue was not able to be bookmarked cause of max count");
-                } else {
-                    tracker.IsBookmarked = !tracker.IsBookmarked;
-                    if(tracker.IsBookmarked){
-                        _toDisplay.Add(tracker);
-                    } else {
-                        _toDisplay.Remove(tracker);
-                    }
-                }
-            }
-
-            UpdateDisplayedJournalEntries();
+        if(wasClick && entry.ActiveDialogue != null){
+            UpdateBookmarkEntryCallback(entry.ActiveDialogue.DialogueTag);
         }
 
         UpdateEntryBookmarkIcon(entry);
+    }
+
+    public void UpdateBookmarkEntryCallback(String DialogueTag){
+        DialogueBookmarkTracker tracker = _dialogueTags[DialogueTag];
+
+        if(!tracker.IsBookmarked && _toDisplay.Count >= _journalEntryReferences.Count){
+            Debug.LogWarning("[TODO]: Display Feedback that a dialogue was not able to be bookmarked cause of max count");
+        } else {
+            tracker.IsBookmarked = !tracker.IsBookmarked;
+            if(tracker.IsBookmarked){
+                _toDisplay.Add(tracker);
+            } else {
+                _toDisplay.Remove(tracker);
+            }
+        }
+
+        UpdateDisplayedJournalEntries();
     }
 
     private void UpdateDisplayedJournalEntries(){
@@ -114,7 +116,7 @@ public class JournalManager : MonoBehaviour
     private IEnumerator DelayedUnclickCheck(DialogueObject entry){
         yield return new WaitForSeconds(_unclickCheckDelay);
         entry.WasClicked = false;
-        UpdateEntryBookmarkCallback(entry);
+        UpdateDialogueObjectCallback(entry);
     }
 
 

@@ -5,6 +5,7 @@
       "Emotion": 2,
       "ConvoText": "Just another warrior? If that is what you believe, then you are not ready to walk this battlefield.",
       "JournalText": "",
+      "SelfBookmarkSet": false,
       "SelfProgressSet": -1,
       "MakesNameKnown": true,
       "ConvoEffect": null,

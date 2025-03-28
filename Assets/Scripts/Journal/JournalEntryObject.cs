@@ -9,7 +9,7 @@ public class JournalEntryObject : DialogueObject
     [SerializeField] private Image _backingImage;
     public void SetJournalEntry(DialogueScriptable dialogue){
         this.SetDialogue(dialogue, true);
-        JournalManager.Instance.UpdateEntryBookmarkCallback(this);
+        JournalManager.Instance.UpdateDialogueObjectCallback(this);
         if(dialogue == null){
             _entryIconReference.gameObject.SetActive(false);
             _backingImage.enabled = false;

@@ -13,6 +13,7 @@ using UnityEngine.Events;
         [SerializeField] public ConvoEmotion Emotion;
         [TextArea(2,3)] public string ConvoText;
         [TextArea(1,2)] public string JournalText;
+        [SerializeField] public bool SelfBookmarkSet = false;
         [SerializeField] public int SelfProgressSet = -1;
         [SerializeField] public bool MakesNameKnown = false;
         [SerializeReference] public ConvoStepEffectScriptable ConvoEffect = null;

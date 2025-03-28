@@ -124,6 +124,10 @@ public class ConversationManager : MonoBehaviour
         if(convoStep.SelfProgressSet != -1)
             _characters[_currentCharacter].ConvoIndex = convoStep.SelfProgressSet;
 
+        // Activates the last step self bookmark
+        if(convoStep.SelfBookmarkSet)
+            JournalManager.Instance.UpdateBookmarkEntryCallback(convoStep.DialogueTag);
+
         // Activates the last step's making name known
         if(convoStep.MakesNameKnown)
             MakeCharacterKnown(_currentCharacter);

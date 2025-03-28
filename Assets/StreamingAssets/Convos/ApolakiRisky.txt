@@ -5,6 +5,7 @@
       "Emotion": 2,
       "ConvoText": "Fear? You should fear the sun, for it does not show mercy.",
       "JournalText": "",
+      "SelfBookmarkSet": false,
       "SelfProgressSet": -1,
       "MakesNameKnown": false,
       "ConvoEffect": null,

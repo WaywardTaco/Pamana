@@ -5,6 +5,7 @@
       "Emotion": 0,
       "ConvoText": "A traveler? Then turn back. This place is cursed with memories of war.",
       "JournalText": "",
+      "SelfBookmarkSet": false,
       "SelfProgressSet": -1,
       "MakesNameKnown": false,
       "ConvoEffect": null,
