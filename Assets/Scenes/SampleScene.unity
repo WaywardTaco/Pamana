@@ -2831,6 +2831,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8756168583598838867, guid: 7757fcc1128113844b502b74a947a97c, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756168583598838867, guid: 7757fcc1128113844b502b74a947a97c, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -3147,6 +3155,14 @@ PrefabInstance:
     - target: {fileID: 6890803409893561560, guid: 7757fcc1128113844b502b74a947a97c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756168583598838867, guid: 7757fcc1128113844b502b74a947a97c, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756168583598838867, guid: 7757fcc1128113844b502b74a947a97c, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 82325754469249519, guid: 7757fcc1128113844b502b74a947a97c, type: 3}
@@ -5939,6 +5955,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4550280696405136495, guid: c151e6adaa0006749a5e4d8804620998, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550280696405136495, guid: c151e6adaa0006749a5e4d8804620998, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 191
+      objectReference: {fileID: 0}
     - target: {fileID: 4611911098300154586, guid: c151e6adaa0006749a5e4d8804620998, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6378,8 +6402,16 @@ PrefabInstance:
       value: 5.2813
       objectReference: {fileID: 0}
     - target: {fileID: 8756168583598838867, guid: 7757fcc1128113844b502b74a947a97c, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756168583598838867, guid: 7757fcc1128113844b502b74a947a97c, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756168583598838867, guid: 7757fcc1128113844b502b74a947a97c, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 82325754469249519, guid: 7757fcc1128113844b502b74a947a97c, type: 3}
