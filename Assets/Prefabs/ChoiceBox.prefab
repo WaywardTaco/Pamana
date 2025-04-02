@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 6892409342092326353}
   - component: {fileID: 2909143409425284961}
   - component: {fileID: 4763893029347490784}
+  - component: {fileID: 1593568973853542680}
   m_Layer: 0
   m_Name: ChoiceBox
   m_TagString: Untagged
@@ -327,3 +328,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 1
+--- !u!114 &1593568973853542680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603739440482614480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.8352941}
+  m_EffectDistance: {x: -4, y: -3}
+  m_UseGraphicAlpha: 1
