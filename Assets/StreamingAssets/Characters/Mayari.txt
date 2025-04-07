@@ -1,0 +1,27 @@
+{
+  "CharacterTag": "Mayari",
+  "CharacterKnownName": "Mayari",
+  "CharacterUnknownName": "A mysterious god",
+  "CharacterPortaits": [
+    {
+      "PortraitFile": "MayariNeutral.png",
+      "Emotion": 0
+    },
+    {
+      "PortraitFile": "MayariHappy.png",
+      "Emotion": 1
+    },
+    {
+      "PortraitFile": "MayariFrustration.png",
+      "Emotion": 2
+    },
+    {
+      "PortraitFile": "MayariRemorse.png",
+      "Emotion": 3
+    },
+  ],
+  "ConvoStartBranchTags": [
+    "ApolakiIntro"
+  ],
+  "IconFile": "MayariNeutral.png"
+}
