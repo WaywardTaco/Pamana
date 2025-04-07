@@ -1,0 +1,16 @@
+{
+  "BranchTag": "MayariEmpathy",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Yes. My light is not lesser... it is earned. In pain. In peace. In patience. (She smiles, gently, and looks to the horizon as night settles in.)",
+      "JournalText": "The night that would not yield.",
+      "SelfBookmarkSet": true,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": []
+}

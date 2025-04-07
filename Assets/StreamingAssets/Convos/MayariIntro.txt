@@ -1,0 +1,38 @@
+{
+  "BranchTag": "MayariIntro",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "You walk softly, stranger. That is wise. Night listens more than it speaks.",
+      "JournalText": "",
+      "SelfBookmarkSet": false,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": [
+    {
+      "ConvoOptionText": "Are you the one they call Mayari?",
+      "NextBranchTag": "MayariNeutral",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "Is this where you lost your eye?",
+      "NextBranchTag": "MayariRisky",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "You’re waiting for someone, aren’t you?",
+      "NextBranchTag": "MayariInsightful",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    }
+  ]
+}

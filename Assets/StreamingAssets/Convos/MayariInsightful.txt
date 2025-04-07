@@ -1,0 +1,58 @@
+{
+  "BranchTag": "MayariInsightful",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "I wait for silence… and memory. You see more than most. Then listen… let me tell you what the others forget.",
+      "JournalText": "",
+      "SelfBookmarkSet": false,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+    {
+      "Emotion": 0,
+      "ConvoText": "I was born beside the sun. My brother, Apolaki, burned brightly. But I... my light was not lesser. Only softer.",
+      "JournalText": "",
+      "SelfBookmarkSet": false,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+    {
+      "Emotion": 0,
+      "ConvoText": "He claimed the sky as his to rule. I did not fight for power... I fought to share.",
+      "JournalText": "",
+      "SelfBookmarkSet": false,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+  ],
+  "EndingOptions": [
+    {
+      "ConvoOptionText": "Wasn’t sharing always the answer?",
+      "NextBranchTag": "MayariNaive",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "Did you ever consider stepping aside?",
+      "NextBranchTag": "MayariDisrespectful",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "So you fought for equality?",
+      "NextBranchTag": "MayariSupportive",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    }
+  ]
+}

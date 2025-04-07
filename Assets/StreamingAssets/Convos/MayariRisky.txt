@@ -1,0 +1,16 @@
+{
+  "BranchTag": "MayariRisky",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "You seek wounds before understanding. That says much.",
+      "JournalText": "",
+      "SelfBookmarkSet": false,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": []
+}

@@ -1,0 +1,16 @@
+{
+  "BranchTag": "MayariDetached",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Strength is not the point. Understanding is.",
+      "JournalText": "",
+      "SelfBookmarkSet": false,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": []
+}

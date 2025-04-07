@@ -1,0 +1,38 @@
+{
+  "BranchTag": "ApolakiPartTwo",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Traveler, have you met my kin? If so, before I continue my tale, tell me... do you even know the name of the one who stands before you?",
+      "JournalText": "",
+      "SelfBookmarkSet": false,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": [
+    {
+      "ConvoOptionText": "You're the one who blinded Mayari.",
+      "NextBranchTag": "ApolakiAccusatory",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "Does it matter? You're just another warrior lost to time.",
+      "NextBranchTag": "ApolakiDisrespectful",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "You are Apolaki, the Bringer of Daylight.",
+      "NextBranchTag": "ApolakiRespectful",
+      "SelfProgressSet": 4,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    }
+  ]
+}

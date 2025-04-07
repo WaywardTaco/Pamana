@@ -13,35 +13,40 @@
     },
     {
       "Emotion": 0,
-      "ConvoText": "Before I start, tell me, traveler… do you even know the name of the one who stands before you?",
+      "ConvoText": "A story such as mine, is one not easily told, for though war and peace be a cycle, the rising of the sun and its setting were not so",
       "JournalText": "",
       "SelfProgressSet": -1,
       "MakesNameKnown": false,
       "ConvoEffect": null,
       "DialogueTag": ""
     },
-  ],
-  "EndingOptions": [
     {
-      "ConvoOptionText": "You're the one who blinded Mayari.",
-      "NextBranchTag": "ApolakiAccusatory",
+      "Emotion": 1,
+      "ConvoText": "For the sun ruled over the sky, a rule which was mine, yet challenged by her who I had thought inferior, dim, and weak.",
+      "JournalText": "",
       "SelfProgressSet": -1,
       "MakesNameKnown": false,
-      "OptionEffect": null
+      "ConvoEffect": null,
+      "DialogueTag": ""
     },
     {
-      "ConvoOptionText": "Does it matter? You're just another warrior lost to time.",
-      "NextBranchTag": "ApolakiDisrespectful",
+      "Emotion": 3,
+      "ConvoText": "Perhaps I was prideful, something I regret, something I should not have had to learn through bloodshed...",
+      "JournalText": "",
       "SelfProgressSet": -1,
       "MakesNameKnown": false,
-      "OptionEffect": null
+      "ConvoEffect": null,
+      "DialogueTag": ""
     },
     {
-      "ConvoOptionText": "You are Apolaki, the Bringer of Daylight.",
-      "NextBranchTag": "ApolakiRespectful",
+      "Emotion": 3,
+      "ConvoText": "Traveler, I must apologize, this story is not one I can tell myself. Find she who I regret wounding, learn her story, and find me elsewhere, perhaps then you will be ready to understand.",
+      "JournalText": "",
       "SelfProgressSet": 2,
       "MakesNameKnown": false,
-      "OptionEffect": null
+      "ConvoEffect": null,
+      "DialogueTag": ""
     }
-  ]
+  ],
+  "EndingOptions": []
 }

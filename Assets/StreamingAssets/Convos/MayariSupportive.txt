@@ -1,0 +1,48 @@
+{
+  "BranchTag": "MayariSupportive",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Yes. Not for a throne, but for balance. He would not listen... so I stood firm. We clashed, as sky and flame.",
+      "JournalText": "",
+      "SelfBookmarkSet": false,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+    {
+      "Emotion": 0,
+      "ConvoText": "But I rose. I shone again—not as his rival, but as his equal.",
+      "JournalText": "She rose not to rule, but to remain.",
+      "SelfBookmarkSet": true,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    },
+  ],
+  "EndingOptions": [
+    {
+      "ConvoOptionText": "So the moon didn’t lose. It changed.",
+      "NextBranchTag": "MayariDistant",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "Forgiveness made you stronger.",
+      "NextBranchTag": "MayariDetached",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    },
+    {
+      "ConvoOptionText": "You endured, and still shine.",
+      "NextBranchTag": "MayariEmpathy",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "OptionEffect": null
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "BranchTag": "MayariNaive",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "Not all ears listen. Not all flames yield. Some truths must be earned in battle.",
+      "SelfBookmarkSet": false,
+      "JournalText": "",
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": []
+}

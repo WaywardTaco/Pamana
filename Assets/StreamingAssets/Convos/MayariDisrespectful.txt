@@ -1,0 +1,16 @@
+{
+  "BranchTag": "MayariDisrespectful",
+  "ConvoSteps": [
+    {
+      "Emotion": 0,
+      "ConvoText": "So I should vanish, simply because he burns brighter? Leave.",
+      "JournalText": "",
+      "SelfBookmarkSet": false,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": true,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": []
+}

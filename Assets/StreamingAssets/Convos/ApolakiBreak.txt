@@ -1,0 +1,16 @@
+{
+  "BranchTag": "ApolakiBreak",
+  "ConvoSteps": [
+    {
+      "Emotion": 3,
+      "ConvoText": "Traveler, I must apologize, this story is not one I can tell myself. Find she who I regret wounding, learn her story, and find me elsewhere, perhaps then you will be ready to understand.",
+      "JournalText": "",
+      "SelfBookmarkSet": false,
+      "SelfProgressSet": -1,
+      "MakesNameKnown": false,
+      "ConvoEffect": null,
+      "DialogueTag": ""
+    }
+  ],
+  "EndingOptions": []
+}
